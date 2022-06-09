@@ -50,6 +50,7 @@ extension UIScrollView {
     ///   - height: keyboard height
     ///   - duration: keyboard animation duration
     ///   - options: keyboard animation options
+    @objc
     open func keyboardWillShow(height: CGFloat, duration: TimeInterval, options: UIView.AnimationOptions) {
         // we want to inset the scrollview's content by the difference
         // between the keyboard's height and the safe area bottom padding (if any)
@@ -69,6 +70,7 @@ extension UIScrollView {
     /// - Parameters:
     ///   - duration: keyboard animation duration
     ///   - options: keyboard animation options
+    @objc
     open func keyboardWillHide(duration: TimeInterval, options: UIView.AnimationOptions) {
         contentInset = .zero
         scrollIndicatorInsets = .zero
