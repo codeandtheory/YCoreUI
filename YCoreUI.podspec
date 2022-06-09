@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = "YCoreUI"
-  spec.version          = "1.0.0"
+  spec.version          = "1.0.1"
   spec.summary          = "Core components for iOS to accelerate building user interfaces in code."
   spec.description      = "This framework comprises UIView extensions for declarative AutoLayout, UIColor extensions for WCAG 2.0 contrast ratio calculations, and UIScrollView extensions to assist with keyboard avoidance."
   spec.homepage         = "https://github.com/yml-org/YCoreUI"
