@@ -23,7 +23,7 @@ final class UIColorRgbValueTests: XCTestCase {
         (UIColor(rgb: 0xad1dea), "ab", false, "abad1dea")
         ]
 
-    func test() {
+    func testRgbDisplayString() {
         testCases.forEach {
             XCTAssertEqual($0.color.rgbDisplayString(prefix: $0.prefix, isUppercase: $0.isUppercase), $0.output)
         }
