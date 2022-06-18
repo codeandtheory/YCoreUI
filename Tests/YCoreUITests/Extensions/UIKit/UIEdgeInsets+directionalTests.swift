@@ -18,7 +18,7 @@ final class UIEdgeInsetsDirectionalTests: XCTestCase {
         UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     ]
 
-    func test() {
+    func testDirectional() {
         testCases.forEach {
             let directional = $0.directionalInsets
             XCTAssertEqual($0.top, directional.top)

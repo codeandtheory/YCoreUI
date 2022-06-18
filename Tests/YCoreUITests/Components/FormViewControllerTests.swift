@@ -10,7 +10,7 @@ import XCTest
 @testable import YCoreUI
 
 final class FormViewControllerTests: XCTestCase {
-    func test() {
+    func testLoadView() {
         let sut = makeSUT()
         // we expect content view to have three subviews (label + textField + button)
         XCTAssertEqual(sut.contentView.subviews.count, 3)
