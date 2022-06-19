@@ -1,6 +1,8 @@
 # YCoreUI
 Core components for iOS to accelerate building user interfaces in code.
 
+  This framework comprises UIView extensions for declarative AutoLayout, UIColor extensions for WCAG 2.0 contrast ratio calculations, and UIScrollView extensions to assist with keyboard avoidance.
+
 Documentation
 ----------
 
