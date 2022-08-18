@@ -1,33 +1,47 @@
-# YCoreUI
-Core components for iOS to accelerate building user interfaces in code.
+![Y-CoreUI](https://mpospese.com/wp-content/uploads/2022/08/YCoreUI-hero-compact.jpeg)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYCoreUI%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/yml-org/YCoreUI) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYCoreUI%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/yml-org/YCoreUI)  
+_Core components for iOS to accelerate building user interfaces in code._
 
-  This framework comprises UIView extensions for declarative AutoLayout, UIColor extensions for WCAG 2.0 contrast ratio calculations, and UIScrollView extensions to assist with keyboard avoidance.
+  This lightweight framework primarily comprises:
+  
+  * UIView extensions for declarative Auto Layout
+  * UIScrollView extensions to assist with keyboard avoidance
+  * UIColor extensions for WCAG 2.0 contrast ratio calculations
+  
+  It also contains miscellaneous other Foundation and UIKit extensions.
 
 Documentation
 ----------
 
 Documentation is automatically generated from source code comments and rendered as a static website hosted via GitHub Pages at:  https://yml-org.github.io/YCoreUI/
 
-Requirements
+Installation
 ----------
 
-### SwiftLint (linter)
+You can add Y-CoreUI to an Xcode project by adding it as a package dependency.
+
+1. From the **File** menu, select **Add Packages...**
+2. Enter "[https://github.com/yml-org/YCoreUI](https://github.com/yml-org/YCoreUI)" into the package repository URL text field
+3. Click **Add Package**
+
+Contributing to Y-CoreUI
+----------
+
+### Requirements
+
+#### SwiftLint (linter)
 ```
 brew install swiftlint
 ```
 
-### Jazzy (documentation)
+#### Jazzy (documentation)
 ```
 sudo gem install jazzy
 ```
 
-Setup
-----------
+### Setup
 
-Open `Package.swift` in Xcode.
-
-Contributing to Y-Core-UI
-----------
+Clone the repo and open `Package.swift` in Xcode.
 
 ### Versioning strategy
 
