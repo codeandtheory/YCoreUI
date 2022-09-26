@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if os(iOS)
 /// A view controller with a scrollable content area that will automatically avoid the keyboard for you.
 /// A good choice for views that have inputs (e.g. login or onboarding).
 open class FormViewController: UIViewController {
@@ -154,3 +155,4 @@ internal extension FormViewController {
         handleTapOutside()
     }
 }
+#endif

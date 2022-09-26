@@ -5,9 +5,9 @@ _Core components for iOS to accelerate building user interfaces in code._
   This lightweight framework primarily comprises:
   
   * UIView extensions for declarative Auto Layout
-  * UIScrollView extensions to assist with keyboard avoidance
   * UIColor extensions for WCAG 2.0 contrast ratio calculations
-  
+  * (iOS only) UIScrollView extensions to assist with keyboard avoidance
+ 
   It also contains miscellaneous other Foundation and UIKit extensions.
 
 Documentation
