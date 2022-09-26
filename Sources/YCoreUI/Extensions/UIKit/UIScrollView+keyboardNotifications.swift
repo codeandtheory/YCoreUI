@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if os(iOS)
 extension UIScrollView {
     /// Enables form functionality (content avoids keyboard, sets interactive dismiss mode).
     /// This calls `registerKeyboardNotifications`
@@ -130,3 +131,4 @@ internal extension UIScrollView {
         return UIView.AnimationOptions(rawValue: animationCurve.uintValue << 16)
     }
 }
+#endif

@@ -9,6 +9,7 @@
 import XCTest
 @testable import YCoreUI
 
+#if os(iOS)
 final class UIScrollViewKeyboardNotificationsTests: XCTestCase {
     func testShowKeyboard() {
         let sut = makeSUT()
@@ -161,3 +162,4 @@ private extension UIScrollViewKeyboardNotificationsTests {
         RunLoop.current.run(until: Date())
     }
 }
+#endif

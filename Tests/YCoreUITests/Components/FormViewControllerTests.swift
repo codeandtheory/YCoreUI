@@ -9,6 +9,7 @@
 import XCTest
 @testable import YCoreUI
 
+#if os(iOS)
 final class FormViewControllerTests: XCTestCase {
     func testLoadView() {
         let sut = makeSUT()
@@ -151,3 +152,4 @@ final class MockFormViewController: FormViewController {
         didTapOutside = true
     }
 }
+#endif
