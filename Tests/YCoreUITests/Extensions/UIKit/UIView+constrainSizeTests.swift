@@ -10,16 +10,8 @@ import XCTest
 @testable import YCoreUI
 
 final class UIViewConstrainSizeTests: XCTestCase {
-    private lazy var randomSize = {
-        CGSize(
-            width: self.randomFloat,
-               height: self.randomFloat
-        )
-    }()
     
-    private lazy var randomDimension: CGFloat = {
-        randomFloat
-    }()
+    let randomSize = CGSize(width: 150, height: 200)
     
     func testSize() {
         let sut = makeSUT()
@@ -88,7 +80,7 @@ final class UIViewConstrainSizeTests: XCTestCase {
         
         XCTAssert(sut.translatesAutoresizingMaskIntoConstraints)
         
-        let randomDimension = randomFloat
+        let randomDimension = 100.0
         
         let sizeAttributes: [
             (NSLayoutConstraint.Attribute, CGFloat)
@@ -126,9 +118,5 @@ extension UIViewConstrainSizeTests {
         
         trackForMemoryLeak(sut, file: file, line: line)
         return sut
-    }
-    
-    var randomFloat: CGFloat {
-        CGFloat.random(in: 0...500)
     }
 }
