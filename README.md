@@ -15,6 +15,197 @@ Documentation
 
 Documentation is automatically generated from source code comments and rendered as a static website hosted via GitHub Pages at:  https://yml-org.github.io/YCoreUI/
 
+Usage
+----------
+
+##1. UIView extensions for declarative Auto Layout
+
+To aid in auto layout, Y—CoreUI has several `UIView` extensions that simplify creating layout constraints. These do not use any 3rd party library such as SnapKit, but are simply wrappers around Apple’s own `NSLayoutConstraint` api’s. If you are more comfortable using Apple’s layout constraint api’s natively, then by all means go ahead and use them. But these convenience methods allow for less verbose code that expresses its intent more directly.
+
+All the extensions are to `UIView` and begin with the word `constrain`.
+
+The simplest flavor just creates constraints using attributes just like the original iOS 6 `NSLayoutContraint` api.
+
+
+```swift
+//constrain a button's width to 100
+let button = UIButton()
+addSubview(button)
+button.constrain(.width, constant: 100)
+
+//constrain view to superview**
+
+let container = UIView()
+addSubview(container)
+container.constrain(.leading, to: .leading, of: superview)
+container.constrain(.trailing, to: .trailing, of: superview)
+container.constrain(.top, to: .top, of: superview)
+container.constrain(.bottom, to: .bottom, of: superview)
+```
+
+Another flavor creates constraints using anchors just like the anchor api’s first introduced in iOS 9.
+
+```swift
+//constrain a button's width to 100
+ let button = UIButton()
+ addSubview(button)
+ button.constrain(.widthAnchor, constant: 100)
+
+// constrain view to superview**
+
+ let container = UIView()
+ addSubview(container)
+ container.constrain(.leadingAnchor, to: leadingAnchor)
+ container.constrain(.trailingAnchor, to: trailingAnchor)
+ container.constrain(.topAnchor, to: topAnchor)
+ container.constrain(.bottomAnchor, to: bottomAnchor)
+ ```
+
+There are overrides to handle the common use case of placing one view below another or to the trailing side of another:
+
+```swift
+// constrain button2.leadingAnchor to button1.trailingAnchor
+button2.constrain(after: button1, offset: insets.leading)
+
+// constrain label2.topAnchor to label1.bottomAnchor
+label2.constrain(below: label1, offset: gap)
+```
+
+But where these extensions really shine are the `constrainEdges` methods that create up to four constraints with a single method call.
+
+```swift
+// constrain 2 buttons across in a view
+let button1 = UIButton()
+let button2 = UIButton()
+let insets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+addSubview(button1)
+addSubview(button2)
+
+button1.constrainEdges(.notTrailing, with: insets)
+button2.constrainEdges(.notLeading, with: insets)
+button2.constrain(after: button1, offset: insets.leading)
+button1.constrain(.widthAnchor, to: button2.widthAnchor)
+
+// constrain view to superview
+let container = UIView()
+addSubview(container)
+container.constrainEdges()
+```
+
+There’s also a `constrainEdgesToMargins` variant that sets constraints between the recipient’s edges and the layout margins of the specified view (typically the recipient’s superview). This is very handy for avoiding safe areas such as the region occupied by the navigation bar or by the FaceID notch.
+
+```swift
+// constrain 2 buttons across in a view using margins
+let button1 = UIButton()
+let button2 = UIButton()
+let spacing: CGFloat = 16
+addSubview(button1)
+addSubview(button2)
+
+button1.constrainEdgesToMargins(.notTrailing)
+button2.constrainEdgesToMargins(.notLeading)
+button2.constrain(after: button1, offset: spacing)
+button1.constrain(.widthAnchor, to: button2.widthAnchor)
+
+// constrain view to superview margins
+let container = UIView()
+addSubview(container)
+container.constrainEdgesToMargins()
+```
+
+## 2. UIColor extensions for WCAG 2.0 contrast ratio calculations
+
+Y—CoreUI contains a number of extensions to make working with colors easier. The most useful of them may be WCAG 2.0 contrast calculations. Given any two colors (representing foreground and background colors), you can calculate the contrast ration between them and evaluate whether that passes particular WCAG 2.0 standards (AA or AAA). You can even write unit tests to quickly check all color pairs in your app across all color modes. That could look like this:
+
+```swift
+final class ColorsTests: XCTestCase {
+    typealias ColorInputs = (foreground: UIColor, background: UIColor, context: WCAGContext)
+
+    // These pairs should pass WCAG 2.0 AA
+    let colorPairs: [ColorInputs] = [
+        // label on system background
+        (.label, .systemBackground, .normalText),
+        // label on secondary background
+        (.label, .secondarySystemBackground, .normalText),
+        // label on tertiary background
+        (.label, .tertiarySystemBackground, .normalText),
+        // secondary label on system background
+        (.secondaryLabel, .systemBackground, .normalText),
+        // secondary label on secondary background
+        (.secondaryLabel, .secondarySystemBackground, .normalText),
+        // secondary label on tertiary background
+        (.secondaryLabel, .tertiarySystemBackground, .normalText),
+        // tertiary label on system background
+        (.tertiaryLabel, .systemBackground, .normalText),
+        // tertiary label on secondary background
+        (.tertiaryLabel, .secondarySystemBackground, .normalText),
+        // tertiary label on tertiary background
+        (.tertiaryLabel, .tertiarySystemBackground, .normalText),
+
+        // system red on system background (fails)
+        // (.systemRed, .systemBackground, .normalText),
+    ]
+
+    let allColorSpaces: [UITraitCollection] = [
+        // Light Mode
+        UITraitCollection(userInterfaceStyle: .light),
+        // Light Mode, Increased Contrast
+        UITraitCollection(traitsFrom: [
+            UITraitCollection(userInterfaceStyle: .light),
+            UITraitCollection(accessibilityContrast: .high)
+        ]),
+        // Dark Mode
+        UITraitCollection(userInterfaceStyle: .dark),
+        // Dark Mode, Increased Contrast
+        UITraitCollection(traitsFrom: [
+            UITraitCollection(userInterfaceStyle: .dark),
+            UITraitCollection(accessibilityContrast: .high)
+        ])
+    ]
+
+    func testColorContrast() {
+        // test across all color modes we support
+        for traits in allColorSpaces {
+            // test each color pair
+            colorPairs.forEach {
+                let color1 = $0.foreground.resolvedColor(with: traits)
+                let color2 = $0.background.resolvedColor(with: traits)
+
+                XCTAssertTrue(
+                    color1.isSufficientContrast(to: color2, context: $0.context, level: .AA),
+                    String(
+                        format: "#%@ vs #%@ ratio = %.02f under %@ Mode%@",
+                        color1.rgbDisplayString(),
+                        color2.rgbDisplayString(),
+                        color1.contrastRatio(to: color2),
+                        traits.userInterfaceStyle == .dark ? "Dark" : "Light",
+                        traits.accessibilityContrast == .high ? " Increased Contrast" : ""
+                    )
+                )
+            }
+        }
+    }
+}
+```
+
+## 3. UIScrollView extensions to assist with keyboard avoidance
+
+`FormViewController` is a view controller with a scrollable content area that will automatically avoid the keyboard for you. It is a good choice for views that have inputs (e.g. login or onboarding). Even for views without inputs, it is still quite useful for managing the creation of a `UIScrollView` and a `contentView` set within it, so that you can focus on your content and not have to code a scrollView for every view. 
+
+<aside>
+💡 Almost every full-screen view in your app that contains any text should be a scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
+
+</aside>
+
+## `UIScrollview` Extensions
+
+Want to have a scrollview that avoids the keyboard, but you can’t use `FormViewController`? Most of its functionality is a simple extension to `UIScrollView`. You can add keyboard avoidance to any scroll view like so:
+
+```swift
+scrollView.registerKeyboardNotifications()
+```
+
+
 Installation
 ----------
 
