@@ -12,7 +12,7 @@ extension UIView {
     /// Constrain the receiving view with given size
     /// - Parameters:
     ///   - size: size of view to constrain to
-    ///   - relation: relation to evaluate (towards sibling) (default `.equal`)
+    ///   - relation: relation to evaluate (towards size) (default `.equal`)
     ///   - priority: constraint priority (default `.required`)
     ///   - isActive: whether to activate the constraint or not (default `true`)
     /// - Returns: The created layout constraint
@@ -45,7 +45,7 @@ extension UIView {
     /// - Parameters:
     ///   - width: width of view to constrain to
     ///   - height: height of view to constrain to
-    ///   - relation: relation to evaluate (towards sibling) (default `.equal`)
+    ///   - relation: relation to evaluate (towards width and height) (default `.equal`)
     ///   - priority: constraint priority (default `.required`)
     ///   - isActive: whether to activate the constraint or not (default `true`)
     /// - Returns: The created layout constraint
@@ -62,7 +62,7 @@ extension UIView {
     /// Constrain the receiving view with given dimension
     /// - Parameters:
     ///   - dimension: dimension of view to constrain to
-    ///   - relation: relation to evaluate (towards sibling) (default `.equal`)
+    ///   - relation: relation to evaluate (towards dimension) (default `.equal`)
     ///   - priority: constraint priority (default `.required`)
     ///   - isActive: whether to activate the constraint or not (default `true`)
     /// - Returns: The created layout constraint
