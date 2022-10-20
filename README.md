@@ -18,7 +18,7 @@ Documentation is automatically generated from source code comments and rendered 
 Usage
 ----------
 
-## 1. UIView extensions for declarative Auto Layout
+### 1. UIView extensions for declarative Auto Layout
 
 To aid in auto layout, Y—CoreUI has several `UIView` extensions that simplify creating layout constraints. These do not use any 3rd party library such as SnapKit, but are simply wrappers around Apple’s own `NSLayoutConstraint` api’s. If you are more comfortable using Apple’s layout constraint api’s natively, then by all means go ahead and use them. But these convenience methods allow for less verbose code that expresses its intent more directly.
 
@@ -26,14 +26,13 @@ All the extensions are to `UIView` and begin with the word `constrain`.
 
 The simplest flavor just creates constraints using attributes just like the original iOS 6 `NSLayoutContraint` api.
 
-
 ```swift
-//constrain a button's width to 100
+// constrain a button's width to 100
 let button = UIButton()
 addSubview(button)
 button.constrain(.width, constant: 100)
 
-//constrain view to superview**
+// constrain view to superview
 
 let container = UIView()
 addSubview(container)
@@ -46,7 +45,7 @@ container.constrain(.bottom, to: .bottom, of: superview)
 Another flavor creates constraints using anchors just like the anchor api’s first introduced in iOS 9.
 
 ```swift
-//constrain a button's width to 100
+// constrain a button's width to 100
  let button = UIButton()
  addSubview(button)
  button.constrain(.widthAnchor, constant: 100)
@@ -113,7 +112,7 @@ addSubview(container)
 container.constrainEdgesToMargins()
 ```
 
-## 2. UIColor extensions for WCAG 2.0 contrast ratio calculations
+### 2. UIColor extensions for WCAG 2.0 contrast ratio calculations
 
 Y—CoreUI contains a number of extensions to make working with colors easier. The most useful of them may be WCAG 2.0 contrast calculations. Given any two colors (representing foreground and background colors), you can calculate the contrast ration between them and evaluate whether that passes particular WCAG 2.0 standards (AA or AAA). You can even write unit tests to quickly check all color pairs in your app across all color modes. That could look like this:
 
@@ -188,23 +187,21 @@ final class ColorsTests: XCTestCase {
 }
 ```
 
-## 3. UIScrollView extensions to assist with keyboard avoidance
+### 3. UIScrollView extensions to assist with keyboard avoidance
 
-`FormViewController` is a view controller with a scrollable content area that will automatically avoid the keyboard for you. It is a good choice for views that have inputs (e.g. login or onboarding). Even for views without inputs, it is still quite useful for managing the creation of a `UIScrollView` and a `contentView` set within it, so that you can focus on your content and not have to code a scrollView for every view. 
+#### `FormViewController` is a view controller with a scrollable content area that will automatically avoid the keyboard for you. It is a good choice for views that have inputs (e.g. login or onboarding). Even for views without inputs, it is still quite useful for managing the creation of a `UIScrollView` and a `contentView` set within it, so that you can focus on your content and not have to code a scrollView for every view. 
 
 <aside>
 💡 Almost every full-screen view in your app that contains any text should be a scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
-
 </aside>
 
-## `UIScrollview` Extensions
+#### `UIScrollview` Extensions
 
 Want to have a scrollview that avoids the keyboard, but you can’t use `FormViewController`? Most of its functionality is a simple extension to `UIScrollView`. You can add keyboard avoidance to any scroll view like so:
 
 ```swift
 scrollView.registerKeyboardNotifications()
 ```
-
 
 Installation
 ----------
