@@ -10,13 +10,10 @@ import XCTest
 @testable import YCoreUI
 
 final class UIViewConstrainSizeTests: XCTestCase {
-    
     let randomSize = CGSize(width: 150, height: 200)
     
     func testSize() {
         let sut = makeSUT()
-        
-        XCTAssert(sut.translatesAutoresizingMaskIntoConstraints)
         
         let sizeAttributes: [
             (NSLayoutConstraint.Attribute, CGFloat)
@@ -26,6 +23,8 @@ final class UIViewConstrainSizeTests: XCTestCase {
         ]
         
         let constraints = sut.constrainSize(randomSize)
+        
+        XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
         
         sizeAttributes.forEach {
             guard let constraint = constraints[$0.0] else {
@@ -57,6 +56,8 @@ final class UIViewConstrainSizeTests: XCTestCase {
         ]
         
         let constraints = sut.constrainSize(width: randomSize.width, height: randomSize.height)
+        
+        XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
         
         sizeAttributes.forEach {
             guard let constraint = constraints[$0.0] else {
@@ -90,6 +91,8 @@ final class UIViewConstrainSizeTests: XCTestCase {
         ]
         
         let constraints = sut.constrainSize(randomDimension)
+        
+        XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
         
         sizeAttributes.forEach {
             guard let constraint = constraints[$0.0] else {
