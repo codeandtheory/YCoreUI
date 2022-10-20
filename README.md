@@ -18,7 +18,7 @@ Documentation is automatically generated from source code comments and rendered 
 Usage
 ----------
 
-##1. UIView extensions for declarative Auto Layout
+## 1. UIView extensions for declarative Auto Layout
 
 To aid in auto layout, Y—CoreUI has several `UIView` extensions that simplify creating layout constraints. These do not use any 3rd party library such as SnapKit, but are simply wrappers around Apple’s own `NSLayoutConstraint` api’s. If you are more comfortable using Apple’s layout constraint api’s natively, then by all means go ahead and use them. But these convenience methods allow for less verbose code that expresses its intent more directly.
 
