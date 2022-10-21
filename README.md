@@ -45,17 +45,17 @@ Another flavor creates constraints using anchors just like the anchor api’s fi
 
 ```swift
 // constrain a button's width to 100
- let button = UIButton()
- addSubview(button)
- button.constrain(.widthAnchor, constant: 100)
+let button = UIButton()
+addSubview(button)
+button.constrain(.widthAnchor, constant: 100) 
 
 // constrain view to superview
- let container = UIView()
- addSubview(container)
- container.constrain(.leadingAnchor, to: leadingAnchor)
- container.constrain(.trailingAnchor, to: trailingAnchor)
- container.constrain(.topAnchor, to: topAnchor)
- container.constrain(.bottomAnchor, to: bottomAnchor)
+let container = UIView()
+addSubview(container)
+container.constrain(.leadingAnchor, to: leadingAnchor)
+container.constrain(.trailingAnchor, to: trailingAnchor)
+container.constrain(.topAnchor, to: topAnchor)
+container.constrain(.bottomAnchor, to: bottomAnchor)
  ```
 
 There are overrides to handle the common use case of placing one view below another or to the trailing side of another:
@@ -199,7 +199,7 @@ Want to have a scrollview that avoids the keyboard, but you can’t use `FormVie
 scrollView.registerKeyboardNotifications()
 ```
 <aside>
-💡 Almost every full-screen view in your app that contains any text should be a scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
+💡 Almost every full-screen view in your app that contains any text should be a vertical scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
 </aside>
 
 Installation
