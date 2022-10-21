@@ -13,6 +13,7 @@ extension UIView {
     public struct Center: OptionSet {
         /// corresponding raw value
         public let rawValue: UInt
+        
         /// center X
         public static let x = Center(rawValue: 1 << 0)
         /// center Y
