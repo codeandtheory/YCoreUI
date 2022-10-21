@@ -11,6 +11,7 @@ import UIKit
 extension UIView {
     /// Center alignment options
     public struct Center: OptionSet {
+        /// corresponding raw value
         public let rawValue: UInt
         /// center X
         public static let x = Center(rawValue: 1 << 0)
@@ -18,7 +19,9 @@ extension UIView {
         public static let y = Center(rawValue: 1 << 1)
         /// all (both center X and center Y)
         public static let all: Center = [.x, .y]
-        // initializer must be declared public to matches a (public init) requirement in protocol 'OptionSet'
+        
+        /// Creates the new `Center` option set from the given raw value.
+        /// - Parameter rawValue: the raw value of `Center` option set to create
         public init(rawValue: UInt) {
             self.rawValue = rawValue
         }
