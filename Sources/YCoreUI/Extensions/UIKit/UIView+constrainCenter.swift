@@ -9,24 +9,31 @@
 import UIKit
 
 extension UIView {
-    /// Struct to define center attribute
-    struct Center: OptionSet {
-        let rawValue: UInt
-        static let x = Center(rawValue: 1 << 0)
-        static let y = Center(rawValue: 1 << 1)
-        static let all: Center = [.x, .y]
+    /// Center alignment options
+    public struct Center: OptionSet {
+        public let rawValue: UInt
+        /// center X
+        public static let x = Center(rawValue: 1 << 0)
+        /// center Y
+        public static let y = Center(rawValue: 1 << 1)
+        /// all (both center X and center Y)
+        public static let all: Center = [.x, .y]
+        // initializer must be declared public to matches a (public init) requirement in protocol 'OptionSet'
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
+        }
     }
     
-    /// Constrain the receiving view with provided center attributes
+    /// Constrain the center of the receiving view with the center of another view
     /// - Parameters:
-    ///   - center: Center attribute of view to constrain to (default `.all`)
-    ///   - view2: View object to which constrain to (pass `nil` to constrain to superview)
-    ///   - relation: Relation to evaluate (default `.equal`)
-    ///   - offset: Offset to apply to attribute(center X and Y) (default `.zero`)
-    ///   - priority: Constraint priority (default `.required`)
-    ///   - isActive: Whether to activate the constraint or not (default `true`)
-    /// - Returns: The created layout constraint
-    func constrainCenter(
+    ///   - center: which center attributes to constrain (default `.all`)
+    ///   - view2: view or layout guide to constrain to (pass `nil` to constrain to superview)
+    ///   - relation: relation to evaluate (towards view2) (default `.equal`)
+    ///   - offset: offset to apply relative to view2.center (default `.zero`)
+    ///   - priority: constraint priority (default `.required`)
+    ///   - isActive: whether to activate the constraints or not (default `true`)
+    /// - Returns: dictionary of constraints created, keyed by `.centerX, .centerY`
+    public func constrainCenter(
         _ center: Center = .all,
         to view2: Anchorable? = nil,
         relatedBy relation: NSLayoutConstraint.Relation = .equal,
