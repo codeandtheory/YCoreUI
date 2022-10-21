@@ -33,7 +33,6 @@ addSubview(button)
 button.constrain(.width, constant: 100)
 
 // constrain view to superview
-
 let container = UIView()
 addSubview(container)
 container.constrain(.leading, to: .leading, of: superview)
@@ -50,8 +49,7 @@ Another flavor creates constraints using anchors just like the anchor api’s fi
  addSubview(button)
  button.constrain(.widthAnchor, constant: 100)
 
-// constrain view to superview**
-
+// constrain view to superview
  let container = UIView()
  addSubview(container)
  container.constrain(.leadingAnchor, to: leadingAnchor)
@@ -189,19 +187,20 @@ final class ColorsTests: XCTestCase {
 
 ### 3. UIScrollView extensions to assist with keyboard avoidance
 
-#### `FormViewController` is a view controller with a scrollable content area that will automatically avoid the keyboard for you. It is a good choice for views that have inputs (e.g. login or onboarding). Even for views without inputs, it is still quite useful for managing the creation of a `UIScrollView` and a `contentView` set within it, so that you can focus on your content and not have to code a scrollView for every view. 
+#### FormViewController
 
-<aside>
-💡 Almost every full-screen view in your app that contains any text should be a scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
-</aside>
+ `FormViewController` is a view controller with a scrollable content area that will automatically avoid the keyboard for you. It is a good choice for views that have inputs (e.g. login or onboarding). Even for views without inputs, it is still quite useful for managing the creation of a `UIScrollView` and a `contentView` set within it, so that you can focus on your content and not have to code a scrollView for every view. 
 
-#### `UIScrollview` Extensions
+#### UIScrollview Extensions
 
 Want to have a scrollview that avoids the keyboard, but you can’t use `FormViewController`? Most of its functionality is a simple extension to `UIScrollView`. You can add keyboard avoidance to any scroll view like so:
 
 ```swift
 scrollView.registerKeyboardNotifications()
 ```
+<aside>
+💡 Almost every full-screen view in your app that contains any text should be a scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
+</aside>
 
 Installation
 ----------
