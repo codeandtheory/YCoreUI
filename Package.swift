@@ -22,7 +22,8 @@ let package = Package(
         ),
         .testTarget(
             name: "YCoreUITests",
-            dependencies: ["YCoreUI"]
+            dependencies: ["YCoreUI"],
+            resources: [.process("Assets")]
         )
     ]
 )
