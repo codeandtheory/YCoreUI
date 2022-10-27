@@ -10,9 +10,11 @@ import Foundation
 
 public extension String {
     /// Gets a localized string resource using the string's current value as key
-    /// - Parameter bundle: the bundle containing the localized string resource to use. Default = main app bundle.
+    /// - Parameters:
+    ///   - bundle: the bundle containing the localized string resource to use. Default = main app bundle.
+    ///   - tableName: the name of the `.strings` file containing the localized strings for this enum.
     /// - Returns: the localized string or else itself if it is not localized.
-    func localized(bundle: Bundle = .main) -> String {
-        NSLocalizedString(self, bundle: bundle, comment: self)
+    func localized(bundle: Bundle = .main, tableName: String? = nil) -> String {
+        NSLocalizedString(self, tableName: tableName, bundle: bundle, comment: self)
     }
 }

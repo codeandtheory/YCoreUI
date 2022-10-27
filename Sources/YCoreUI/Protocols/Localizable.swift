@@ -15,6 +15,10 @@ public protocol Localizable: RawRepresentable where RawValue == String {
 
     /// A localized display string for this value
     var localized: String { get }
+    
+    /// The name of the `.strings` file containing the localized strings for this enum.
+    /// `nil` means use the default `Localizable.strings` file
+    static var tableName: String? { get }
 }
 
 extension Localizable {
@@ -23,6 +27,10 @@ extension Localizable {
 
     /// A localized display string for this value
     public var localized: String {
-        rawValue.localized(bundle: Self.bundle)
+        rawValue.localized(bundle: Self.bundle, tableName: Self.tableName)
     }
+    
+    /// The name of the `.strings` file containing the localized strings for this enum.
+    /// Returns `nil` to use the default `Localizable.strings` file
+    static var tableName: String? { nil }
 }
