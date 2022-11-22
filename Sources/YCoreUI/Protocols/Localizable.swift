@@ -32,5 +32,5 @@ extension Localizable {
     
     /// The name of the `.strings` file containing the localized strings for this enum.
     /// Returns `nil` to use the default `Localizable.strings` file
-    static var tableName: String? { nil }
+    public static var tableName: String? { nil }
 }
