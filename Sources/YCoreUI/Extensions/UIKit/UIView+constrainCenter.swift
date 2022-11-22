@@ -37,7 +37,7 @@ extension UIView {
     ///   - priority: constraint priority (default `.required`)
     ///   - isActive: whether to activate the constraints or not (default `true`)
     /// - Returns: dictionary of constraints created, keyed by `.centerX, .centerY`
-    public func constrainCenter(
+    @discardableResult public func constrainCenter(
         _ center: Center = .all,
         to view2: Anchorable? = nil,
         relatedBy relation: NSLayoutConstraint.Relation = .equal,
