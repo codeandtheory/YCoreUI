@@ -8,9 +8,6 @@
 
 import XCTest
 
-// It's not a problem having too many tests!
-// swiftlint:disable function_body_length
-
 final class UIViewConstrainEdgesTests: XCTestCase {
     func testSimple() {
         let (sut, insets) = makeSUT()

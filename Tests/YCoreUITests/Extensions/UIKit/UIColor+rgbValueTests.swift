@@ -8,6 +8,9 @@
 
 import XCTest
 
+// Large tuples help us build unit test expectations concisely
+// swiftlint:disable large_tuple
+
 final class UIColorRgbValueTests: XCTestCase {
     typealias ColorTest = (color: UIColor, prefix: String?, isUppercase: Bool, output: String)
 

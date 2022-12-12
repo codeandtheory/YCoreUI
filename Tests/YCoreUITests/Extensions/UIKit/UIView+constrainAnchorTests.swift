@@ -9,9 +9,6 @@
 import XCTest
 @testable import YCoreUI
 
-// It's not a problem having too many tests!
-// swiftlint:disable type_body_length
-
 final class UIViewConstrainAnchorTests: XCTestCase {
     func testXAxisConstraints() {
         let (sut, relations) = makeSUT()
