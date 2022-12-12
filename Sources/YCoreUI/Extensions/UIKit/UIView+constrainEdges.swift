@@ -10,22 +10,22 @@ import UIKit
 
 extension NSDirectionalRectEdge {
     /// Horizontal edges only (consisting of `.leading` and `.trailing`)
-    public static var horizontal: NSDirectionalRectEdge { return [.leading, .trailing] }
+    public static var horizontal: NSDirectionalRectEdge { [.leading, .trailing] }
 
     /// Vertical edges only (consisting of `.top` and `.bottom`)
-    public static var vertical: NSDirectionalRectEdge { return [.top, .bottom] }
+    public static var vertical: NSDirectionalRectEdge { [.top, .bottom] }
 
     /// All edges except `.top`
-    public static var notTop: NSDirectionalRectEdge { return [.leading, .bottom, .trailing] }
+    public static var notTop: NSDirectionalRectEdge { [.leading, .bottom, .trailing] }
 
     /// All edges except `.leading`
-    public static var notLeading: NSDirectionalRectEdge { return [.top, .bottom, .trailing] }
+    public static var notLeading: NSDirectionalRectEdge { [.top, .bottom, .trailing] }
 
     /// All edges except `.bottom`
-    public static var notBottom: NSDirectionalRectEdge { return [.top, .leading, .trailing] }
+    public static var notBottom: NSDirectionalRectEdge { [.top, .leading, .trailing] }
 
     /// All edges except `.trailing`
-    public static var notTrailing: NSDirectionalRectEdge { return [.top, .leading, .bottom] }
+    public static var notTrailing: NSDirectionalRectEdge { [.top, .leading, .bottom] }
 }
 
 extension UIView {

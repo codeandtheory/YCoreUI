@@ -46,9 +46,6 @@ extension UIColor {
 }
 
 extension UIColor {
-    /// 0x0067B1
-    static let brand = UIColor(rgb: 0x0067B1)
-
     /// 0x0050AC
     static let interactive = UIColor(rgb: 0x0050AC)
 
@@ -57,9 +54,6 @@ extension UIColor {
 
     /// 0xE7F3FE
     static let shade2 = UIColor(rgb: 0xE7F3FE)
-
-    /// 0x6390BC
-    static let shade3 = UIColor(rgb: 0x6390BC)
 }
 
 extension UIColor {
@@ -113,17 +107,6 @@ extension UIColor {
             }
         }
 
-    static let separatorSecondary: UIColor =
-        UIColor { (traitCollection: UITraitCollection) -> UIColor in
-            switch(traitCollection.userInterfaceStyle,
-                   traitCollection.accessibilityContrast) {
-            case (.dark, .high):    return .gray600
-            case (.dark, _):        return .gray500
-            case (_, .high):        return .gray600
-            default:                return .white
-            }
-        }
-
     static let backgroundPrimaryCTA: UIColor =
         UIColor { (traitCollection: UITraitCollection) -> UIColor in
             switch(traitCollection.userInterfaceStyle,
@@ -143,17 +126,4 @@ extension UIColor {
             default:                return .white
             }
         }
-
-    static let backgroundAccent: UIColor =
-        UIColor { (traitCollection: UITraitCollection) -> UIColor in
-            switch(traitCollection.userInterfaceStyle,
-                   traitCollection.accessibilityContrast) {
-            case (.dark, .high):    return .gray400
-            case (.dark, _):        return .gray300
-            case (_, .high):        return .accent.darkened(by: 0.25)
-            default:                return .accent
-            }
-        }
-
-    public static let contentAccent: UIColor = .white
 }
