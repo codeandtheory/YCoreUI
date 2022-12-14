@@ -8,3 +8,9 @@
 
 import XCTest
 @testable import YCoreUI
+
+final class ElevationTests: XCTestCase {
+    func test_failure() {
+        XCTFail("Failed")
+    }
+}
