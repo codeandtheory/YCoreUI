@@ -49,14 +49,12 @@ final class UIViewContrainAspectRatioTests: XCTestCase {
         let sut = makeSUT()
         containerView.addSubview(sut)
         
-        let ratio: CGFloat = 0.5
+        let ratio: CGFloat = 0.7
         let height: CGFloat = 300
         sut.constrain(.heightAnchor, constant: height)
-        
         // Act
         sut.constrainAspectRatio(ratio)
         sut.layoutIfNeeded()
-
         // Assert
         XCTAssertEqual(sut.bounds.width, ratio * sut.bounds.height)
         XCTAssertEqual(sut.bounds.height, height)
