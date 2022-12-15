@@ -41,7 +41,7 @@ extension UIView {
         return [.width: widthConstraint, .height: heightConstraint]
     }
     
-    /// Constrain the receiving view with width and heigh
+    /// Constrain the receiving view with width and height
     /// - Parameters:
     ///   - width: width of view to constrain to
     ///   - height: height of view to constrain to
