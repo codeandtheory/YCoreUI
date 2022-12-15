@@ -55,12 +55,13 @@ final class ElevationTests: XCTestCase {
 }
 
 private extension ElevationTests {
-    func makeSUT(offset: CGSize = CGSize(width: 1, height: 1),
-                 blur: CGFloat = 2,
-                 spread: CGFloat = 3,
-                 color: UIColor = .red,
-                 opacity: CGFloat = 5,
-                 useShadowPath: Bool = true
+    func makeSUT(
+        offset: CGSize = CGSize(width: 1, height: 1),
+        blur: CGFloat = 2,
+        spread: CGFloat = 3,
+        color: UIColor = .red,
+        opacity: CGFloat = 5,
+        useShadowPath: Bool = true
     ) -> Elevation {
         Elevation(
             offset: offset,
