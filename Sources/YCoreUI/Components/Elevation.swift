@@ -50,8 +50,8 @@ public struct Elevation {
     /// Applies elevation to a layer.
     /// - Parameters:
     ///   - layer: layer of the corresponding view
-    ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background
-    public func apply(layer: CALayer, cornerRadius: CGFloat) {
+    ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background. Default is `.zero`
+    public func apply(layer: CALayer, cornerRadius: CGFloat = .zero) {
         applyShadow(layer: layer)
         
         if useShadowPath {
