@@ -33,9 +33,8 @@ final class ElevationTests: XCTestCase {
         XCTAssertEqual(sut.useShadowPath, true)
     }
     
-    func test_apply_doesNotAddShadowPathWhenUseShadowPathIsFalse() {
+    func test_apply_doesNotsetShadowPathWhenUseShadowPathIsFalse() {
         let sut = makeSUT(useShadowPath: false)
-        
         let layer = CALayer()
         
         sut.apply(layer: layer, cornerRadius: 8)
@@ -43,9 +42,8 @@ final class ElevationTests: XCTestCase {
         XCTAssertNil(layer.shadowPath)
     }
     
-    func test_apply_addsShadowPathWhenUseShadowPathIsTrue() {
+    func test_apply_setsShadowPathWhenUseShadowPathIsTrue() {
         let sut = makeSUT(useShadowPath: true)
-        
         let layer = CALayer()
         
         sut.apply(layer: layer, cornerRadius: 8)
@@ -55,7 +53,6 @@ final class ElevationTests: XCTestCase {
     
     func test_apply_setsShadowPropertiesWhenUseShadowPathIsFalse() {
         let sut = makeSUT(useShadowPath: false)
-
         let layer = CALayer()
         
         sut.apply(layer: layer, cornerRadius: 8)
@@ -68,7 +65,6 @@ final class ElevationTests: XCTestCase {
     
     func test_apply_setsShadowPropertiesWhenUseShadowPathIsTrue() {
         let sut = makeSUT(useShadowPath: true)
-
         let layer = CALayer()
         
         sut.apply(layer: layer, cornerRadius: 8)
