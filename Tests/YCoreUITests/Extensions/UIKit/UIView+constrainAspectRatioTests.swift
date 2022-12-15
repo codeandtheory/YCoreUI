@@ -10,27 +10,61 @@ import XCTest
 @testable import YCoreUI
 
 final class UIViewContrainAspectRatioTests: XCTestCase {
-    func testSimple() {
+    func test_constrainAspectRatio_deliversDefaultValues() {
+        // Arrange
         let sut = makeSUT()
-        XCTAssert(sut.translatesAutoresizingMaskIntoConstraints)
-        sut.frame = CGRect(x: 0, y: 0, width: 100, height: 500)
-        sut.constrainAspectRatio(0.5)
-//        XCTAssertEqual(sut.frame.height, sut.frame.width * 0.5)
+        // Act
+        let constraint = sut.constrainAspectRatio(0.5)
+        // Assert
+        XCTAssertEqual(constraint.constant, .zero)
+        XCTAssertEqual(constraint.priority, .required)
+        XCTAssertTrue(constraint.isActive)
+        XCTAssertEqual(constraint.relation, .equal)
+        XCTAssertEqual(constraint.firstAttribute, .width)
+        XCTAssertEqual(constraint.secondAttribute, .height)
     }
     
-    func testOffset() {
+    func test_constrainAspectRatio_translatesAutoResizingMaskIsFalse() {
+        // Arrange
         let sut = makeSUT()
-        var randomOffset: CGFloat = CGFloat.random(in: 0..<500)
-        let constraint = sut.constrainAspectRatio(0.5, offset: randomOffset)
-        XCTAssertEqual(constraint.constant, randomOffset)
+        // Act
+        sut.constrainAspectRatio(0.5)
+        // Assert
+        XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
     }
-        
-    func testPriority() {
+    
+    func test_constrainAspectRatio_deliversMultiplierForTheGivenRatio() {
+        // Arrange
         let sut = makeSUT()
-        let randomPriority: UILayoutPriority = UILayoutPriority(Float.random(in: 1...1000))
-        let constraint = sut.constrainAspectRatio(0.5, priority: randomPriority)
-        XCTAssertEqual(constraint.priority, randomPriority)
+        // Act
+        let constraint = sut.constrainAspectRatio(0.5)
+        // Assert
+        XCTAssertEqual(constraint.multiplier, 0.5)
     }
+    
+//    func test_constrainAspectRatio_layoutsSUT() {
+//        // Arrange
+//        let containerView = UIView()
+//        containerView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        containerView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+//        containerView.widthAnchor.constraint(equalToConstant: 500).isActive = true
+//
+//        containerView.layoutIfNeeded()
+//
+//
+//
+//        let sut = makeSUT()
+//
+//        // Act
+//        sut.constrainAspectRatio(0.5)
+//
+//        sut.layoutIfNeeded()
+//
+//
+//
+//        XCTAssertEqual(sut.frame.height, sut.frame.width * 0.5)
+//    }
 }
 
 private extension UIViewContrainAspectRatioTests {
