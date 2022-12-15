@@ -12,9 +12,9 @@ import UIKit
 public struct Elevation {
     /// The offset of the layer’s shadow.
     public let offset: CGSize
-    /// The blur of the layers. shadow.
+    /// The blur of the layer's. shadow.
     public let blur: CGFloat
-    /// The spread of the layers. shadow.
+    /// The spread of the layer's. shadow.
     public let spread: CGFloat
     /// The color of the layer’s shadow.
     public let color: UIColor
@@ -26,8 +26,8 @@ public struct Elevation {
     /// Initializes `Elevation`.
     /// - Parameters:
     ///   - offset: the offset of the layer’s shadow
-    ///   - blur: the blur of the layers. shadow
-    ///   - spread: the spread of the layers. shadow
+    ///   - blur: the blur of the layer's shadow
+    ///   - spread: the spread of the layer's. shadow
     ///   - color: the color of the layer’s shadow
     ///   - opacity: the opacity of the layer’s shadow
     ///   - useShadowPath: flag to set shadow path. Default is `true`
