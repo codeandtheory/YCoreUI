@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// Encapsulate design shadows and apply them to view.
+/// Encapsulates design shadows and apply them to view.
 public struct Elevation {
     /// The offset of the layer’s shadow.
     public let offset: CGSize
-    /// The blur of the layer's. shadow.
+    /// The blur of the layer's shadow.
     public let blur: CGFloat
     /// The spread of the layer's shadow.
     public let spread: CGFloat
@@ -50,7 +50,7 @@ public struct Elevation {
     /// Applies elevation to a layer.
     /// - Parameters:
     ///   - layer: layer of the corresponding view
-    ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background.
+    ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background
     public func apply(layer: CALayer, cornerRadius: CGFloat) {
         applyShadow(layer: layer)
         
