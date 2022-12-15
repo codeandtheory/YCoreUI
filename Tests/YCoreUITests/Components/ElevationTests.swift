@@ -33,10 +33,11 @@ struct Elevation {
         self.useShadowPath = useShadowPath
     }
     
-    func apply(layer: CALayer) {
+    func apply(layer: CALayer, cornerRadius: CGFloat) {
         guard useShadowPath else { return }
         
-        layer.shadowPath = UIBezierPath().cgPath
+        let rect = layer.bounds.insetBy(dx: -spread, dy: -spread)
+        layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
     }
 }
 
@@ -69,7 +70,7 @@ final class ElevationTests: XCTestCase {
         
         let layer = CALayer()
         
-        sut.apply(layer: layer)
+        sut.apply(layer: layer, cornerRadius: 8)
         
         XCTAssertNil(layer.shadowPath)
     }
@@ -79,11 +80,13 @@ final class ElevationTests: XCTestCase {
         
         let layer = CALayer()
         
-        sut.apply(layer: layer)
+        sut.apply(layer: layer, cornerRadius: 8)
         
         XCTAssertNotNil(layer.shadowPath)
     }
-    
+}
+
+private extension ElevationTests {
     func makeSUT(offset: CGSize = CGSize(width: 1, height: 1),
                  blur: CGFloat = 2,
                  spread: CGFloat = 3,
