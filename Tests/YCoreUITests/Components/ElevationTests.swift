@@ -33,7 +33,7 @@ final class ElevationTests: XCTestCase {
         XCTAssertEqual(sut.useShadowPath, true)
     }
     
-    func test_apply_doesNotsetShadowPathWhenUseShadowPathIsFalse() {
+    func test_apply_doesNotSetShadowPathWhenUseShadowPathIsFalse() {
         let sut = makeSUT(useShadowPath: false)
         let layer = CALayer()
         
