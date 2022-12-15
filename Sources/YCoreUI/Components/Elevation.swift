@@ -19,7 +19,7 @@ public struct Elevation {
     /// The color of the layer’s shadow.
     public let color: UIColor
     /// The opacity of the layer’s shadow.
-    public let opacity: CGFloat
+    public let opacity: Float
     /// Flag to set shadow path. Default is `true`.
     public let useShadowPath: Bool
     
@@ -36,7 +36,7 @@ public struct Elevation {
         blur: CGFloat,
         spread: CGFloat,
         color: UIColor,
-        opacity: CGFloat,
+        opacity: Float,
         useShadowPath: Bool = true
     ) {
         self.offset = offset
@@ -52,9 +52,18 @@ public struct Elevation {
     ///   - layer: layer of the corresponding view
     ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background.
     public func apply(layer: CALayer, cornerRadius: CGFloat) {
-        guard useShadowPath else { return }
+        applyShadow(layer: layer)
         
-        let rect = layer.bounds.insetBy(dx: -spread, dy: -spread)
-        layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
+        if useShadowPath {
+            let rect = layer.bounds.insetBy(dx: -spread, dy: -spread)
+            layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
+        }
+    }
+    
+    private func applyShadow(layer: CALayer) {
+        layer.shadowOpacity = opacity
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowRadius = blur / 2
     }
 }
