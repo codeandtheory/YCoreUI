@@ -8,15 +8,15 @@
 
 import UIKit
 
-struct Elevation {
-    let offset: CGSize
-    let blur: CGFloat
-    let spread: CGFloat
-    let color: UIColor
-    let opacity: CGFloat
-    let useShadowPath: Bool
+public struct Elevation {
+    public let offset: CGSize
+    public let blur: CGFloat
+    public let spread: CGFloat
+    public let color: UIColor
+    public let opacity: CGFloat
+    public let useShadowPath: Bool
     
-    init(
+    public init(
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat,
@@ -32,7 +32,7 @@ struct Elevation {
         self.useShadowPath = useShadowPath
     }
     
-    func apply(layer: CALayer, cornerRadius: CGFloat) {
+    public func apply(layer: CALayer, cornerRadius: CGFloat) {
         guard useShadowPath else { return }
         
         let rect = layer.bounds.insetBy(dx: -spread, dy: -spread)
