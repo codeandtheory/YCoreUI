@@ -52,6 +52,32 @@ final class ElevationTests: XCTestCase {
         
         XCTAssertNotNil(layer.shadowPath)
     }
+    
+    func test_apply_setsShadowPropertiesWhenUseShadowPathIsFalse() {
+        let sut = makeSUT(useShadowPath: false)
+
+        let layer = CALayer()
+        
+        sut.apply(layer: layer, cornerRadius: 8)
+        
+        XCTAssertEqual(layer.shadowOffset, CGSize(width: 1, height: 1))
+        XCTAssertEqual(layer.shadowColor, UIColor.red.cgColor)
+        XCTAssertEqual(layer.shadowOpacity, 5)
+        XCTAssertEqual(layer.shadowRadius, sut.blur / 2)
+    }
+    
+    func test_apply_setsShadowPropertiesWhenUseShadowPathIsTrue() {
+        let sut = makeSUT(useShadowPath: true)
+
+        let layer = CALayer()
+        
+        sut.apply(layer: layer, cornerRadius: 8)
+        
+        XCTAssertEqual(layer.shadowOffset, CGSize(width: 1, height: 1))
+        XCTAssertEqual(layer.shadowColor, UIColor.red.cgColor)
+        XCTAssertEqual(layer.shadowOpacity, 5)
+        XCTAssertEqual(layer.shadowRadius, sut.blur / 2)
+    }
 }
 
 private extension ElevationTests {
@@ -60,7 +86,7 @@ private extension ElevationTests {
         blur: CGFloat = 2,
         spread: CGFloat = 3,
         color: UIColor = .red,
-        opacity: CGFloat = 5,
+        opacity: Float = 5,
         useShadowPath: Bool = true
     ) -> Elevation {
         Elevation(
