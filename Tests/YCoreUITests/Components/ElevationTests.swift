@@ -37,7 +37,7 @@ final class ElevationTests: XCTestCase {
         let sut = makeSUT(useShadowPath: false)
         let layer = CALayer()
         
-        sut.apply(layer: layer, cornerRadius: 8)
+        sut.apply(layer: layer)
         
         XCTAssertNil(layer.shadowPath)
     }
@@ -46,7 +46,7 @@ final class ElevationTests: XCTestCase {
         let sut = makeSUT(useShadowPath: true)
         let layer = CALayer()
         
-        sut.apply(layer: layer, cornerRadius: 8)
+        sut.apply(layer: layer)
         
         XCTAssertNotNil(layer.shadowPath)
     }
@@ -55,7 +55,7 @@ final class ElevationTests: XCTestCase {
         let sut = makeSUT(useShadowPath: false)
         let layer = CALayer()
         
-        sut.apply(layer: layer, cornerRadius: 8)
+        sut.apply(layer: layer)
         
         XCTAssertEqual(layer.shadowOffset, CGSize(width: 1, height: 1))
         XCTAssertEqual(layer.shadowColor, UIColor.red.cgColor)
@@ -67,7 +67,7 @@ final class ElevationTests: XCTestCase {
         let sut = makeSUT(useShadowPath: true)
         let layer = CALayer()
         
-        sut.apply(layer: layer, cornerRadius: 8)
+        sut.apply(layer: layer)
         
         XCTAssertEqual(layer.shadowOffset, CGSize(width: 1, height: 1))
         XCTAssertEqual(layer.shadowColor, UIColor.red.cgColor)
