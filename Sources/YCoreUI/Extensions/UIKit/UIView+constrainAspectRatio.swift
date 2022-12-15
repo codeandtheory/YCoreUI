@@ -26,10 +26,10 @@ extension UIView {
     ) -> NSLayoutConstraint {
         constrain(
             .widthAnchor,
-            to : heightAnchor,
-            relatedBy : relation,
+            to: heightAnchor,
+            relatedBy: relation,
             multiplier: ratio,
-            constant : offset,
+            constant: offset,
             priority: priority,
             isActive: isActive
         )
