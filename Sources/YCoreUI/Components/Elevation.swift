@@ -80,7 +80,21 @@ public struct Elevation {
         self.opacity = max(min(opacity, 1), 0)
         self.useShadowPath = useShadowPath
     }
-    
+
+    /// Computes how far from the edges of the view the shadow will extend in each direction.
+    ///
+    /// This is determined by offset, blur, and spread, but not by opacity (unless zero).
+    /// The rectangle enclosing the shadow should be the view's frame outset by `extent`.
+    public var extent: UIEdgeInsets {
+        guard opacity > 0 else { return .zero }
+
+        return UIEdgeInsets(
+            top: blur + spread - yOffset,
+            left: blur + spread - xOffset,
+            bottom: blur + spread + yOffset,
+            right: blur + spread + xOffset
+        )
+    }
     /// Applies elevation to a layer.
     ///
     /// In most cases `cornerRadius` should match `layer.cornerRadius`.

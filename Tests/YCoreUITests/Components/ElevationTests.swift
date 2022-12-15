@@ -53,6 +53,21 @@ final class ElevationTests: XCTestCase {
         XCTAssertEqual(sut.opacity, 1)
     }
 
+    func test_extent_isZeroWhenOpacityIsZero() {
+        let sut = makeSUT(opacity: 0)
+
+        XCTAssertEqual(sut.extent, .zero)
+    }
+
+    func test_extent_dependsOnOffsetBlurAndSpread() {
+        let sut = makeSUT()
+
+        XCTAssertEqual(sut.extent.top, 2 + 3 - 1)
+        XCTAssertEqual(sut.extent.left, 2 + 3 - 1)
+        XCTAssertEqual(sut.extent.bottom, 2 + 3 + 1)
+        XCTAssertEqual(sut.extent.right, 2 + 3 + 1)
+    }
+
     func test_apply_doesNotSetShadowPathWhenUseShadowPathIsFalse() {
         let sut = makeSUT(useShadowPath: false)
         let layer = makeLayer()
