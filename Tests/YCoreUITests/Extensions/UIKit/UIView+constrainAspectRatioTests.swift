@@ -24,7 +24,7 @@ final class UIViewContrainAspectRatioTests: XCTestCase {
         XCTAssertEqual(constraint.secondAttribute, .height)
     }
     
-    func test_constrainAspectRatio_translatesAutoResizingMaskIsFalse() {
+    func test_constrainAspectRatio_translatesAutoresizingMaskIntoConstraintsIsFalse() {
         // Arrange
         let sut = makeSUT()
         // Act
@@ -33,38 +33,34 @@ final class UIViewContrainAspectRatioTests: XCTestCase {
         XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
     }
     
-    func test_constrainAspectRatio_deliversMultiplierForTheGivenRatio() {
+    func test_constrainAspectRatio_multiplierAndRatioMatches() {
         // Arrange
         let sut = makeSUT()
+        let ratio = 0.5
         // Act
-        let constraint = sut.constrainAspectRatio(0.5)
+        let constraint = sut.constrainAspectRatio(ratio)
         // Assert
-        XCTAssertEqual(constraint.multiplier, 0.5)
+        XCTAssertEqual(constraint.multiplier, ratio)
     }
     
-//    func test_constrainAspectRatio_layoutsSUT() {
-//        // Arrange
-//        let containerView = UIView()
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        containerView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-//        containerView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-//
-//        containerView.layoutIfNeeded()
-//
-//
-//
-//        let sut = makeSUT()
-//
-//        // Act
-//        sut.constrainAspectRatio(0.5)
-//
-//        sut.layoutIfNeeded()
-//
-//
-//
-//        XCTAssertEqual(sut.frame.height, sut.frame.width * 0.5)
-//    }
+    func test_constrainAspectRatio_resizesSUTWithGivenRatio() {
+        // Arrange
+        let containerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 500, height: 500)))
+        let sut = makeSUT()
+        containerView.addSubview(sut)
+        
+        let ratio: CGFloat = 0.5
+        let height: CGFloat = 300
+        sut.constrain(.heightAnchor, constant: height)
+        
+        // Act
+        sut.constrainAspectRatio(ratio)
+        sut.layoutIfNeeded()
+
+        // Assert
+        XCTAssertEqual(sut.bounds.width, ratio * sut.bounds.height)
+        XCTAssertEqual(sut.bounds.height, height)
+    }
 }
 
 private extension UIViewContrainAspectRatioTests {
