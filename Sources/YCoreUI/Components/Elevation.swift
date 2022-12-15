@@ -8,62 +8,108 @@
 
 import UIKit
 
-/// Encapsulates design shadows and apply them to view.
+/// Encapsulates design shadows and applies them to a layer.
+///
+/// This data structure is designed to closely match how shadows are exported from Figma
+/// and also how they are specified for web/CSS.
+/// cf. https://www.w3.org/TR/css-backgrounds-3/#box-shadow
 public struct Elevation {
-    /// The offset of the layer’s shadow.
-    public let offset: CGSize
-    /// The blur of the layer's shadow.
+    /// Specifies the horizontal offset of the shadow.
+    ///
+    /// A positive value draws a shadow that is offset to the right of the box, a negative length to the left.
+    public let xOffset: CGFloat
+
+    /// Specifies the vertical offset of the shadow.
+    ///
+    /// A positive value offsets the shadow down, a negative one up.
+    public let yOffset: CGFloat
+
+    /// Specifies the blur radius.
+    ///
+    /// Negative values are invalid. If the blur value is zero, the shadow’s edge is sharp.
+    /// Otherwise, the larger the value, the more the shadow’s edge is blurred
     public let blur: CGFloat
-    /// The spread of the layer's shadow.
+
+    /// Specifies the spread distance.
+    ///
+    /// Positive values cause the shadow to expand in all directions by the specified radius.
+    /// Negative values cause the shadow to contract.
     public let spread: CGFloat
-    /// The color of the layer’s shadow.
+
+    /// Specifies the color of the shadow.
+    ///
+    /// This value should be opaque (i.e. alpha channel = 1.0 or 0xFF). `opacity` is a separate property.
     public let color: UIColor
-    /// The opacity of the layer’s shadow.
+
+    /// Specifies the opacity of the shadow.
+    ///
+    /// Possible values range from `0.0` to `1.0` (inclusive). `0` means no shadow, and `1` means fully opaque.
     public let opacity: Float
-    /// Flag to set shadow path. Default is `true`.
+
+    /// Whether `apply(layer:cornerRadius:)` should set the shadowPath. Defaults to `true`.
+    ///
+    /// Should be `false` for layers that are not a simple rect or round-rect
+    /// (e.g. ellipse, circle, donut, or other irregular shape such as a logo).
+    /// Note that when `false` the `spread` property is ignored.
+    /// Image rendering performance will be better when set to `true` (avoids an off-screen render pass).
     public let useShadowPath: Bool
     
-    /// Initializes `Elevation`.
+    /// Initializes an elevation
     /// - Parameters:
-    ///   - offset: the offset of the layer’s shadow
-    ///   - blur: the blur of the layer's shadow
-    ///   - spread: the spread of the layer's shadow
-    ///   - color: the color of the layer’s shadow
-    ///   - opacity: the opacity of the layer’s shadow
-    ///   - useShadowPath: flag to set shadow path. Default is `true`
+    ///   - xOffset: the horizontal offset of the shadow
+    ///   - yOffset: the vertical offset of the shadow
+    ///   - blur: the blur radius
+    ///   - spread: the spread distance
+    ///   - color: the color of the shadow
+    ///   - opacity: the opacity of the shadow
+    ///   - useShadowPath: whether to set the shadowPath. Default is `true`
     public init(
-        offset: CGSize,
+        xOffset: CGFloat,
+        yOffset: CGFloat,
         blur: CGFloat,
         spread: CGFloat,
         color: UIColor,
         opacity: Float,
         useShadowPath: Bool = true
     ) {
-        self.offset = offset
-        self.blur = blur
+        self.xOffset = xOffset
+        self.yOffset = yOffset
+        self.blur = max(blur, 0)
         self.spread = spread
         self.color = color
-        self.opacity = opacity
+        self.opacity = max(min(opacity, 1), 0)
         self.useShadowPath = useShadowPath
     }
     
     /// Applies elevation to a layer.
+    ///
+    /// In most cases `cornerRadius` should match `layer.cornerRadius`.
+    /// Note: This method does not set `layer.cornerRadius`, only the layer's shadow properties.
     /// - Parameters:
-    ///   - layer: layer of the corresponding view
-    ///   - cornerRadius: the radius to use when drawing rounded corners for the layer’s background. Default is `.zero`
-    public func apply(layer: CALayer, cornerRadius: CGFloat = .zero) {
+    ///   - layer: the layer to apply the elevation to.
+    ///   - cornerRadius: the corner radius to use for the shadow path.
+    ///   Pass `nil` to use `layer.cornerRadius` (the default).
+    ///   Ignored when `useShadowPath == false`
+    public func apply(layer: CALayer, cornerRadius: CGFloat? = nil) {
         applyShadow(layer: layer)
         
         if useShadowPath {
+            // inset the rect by the spread distance
             let rect = layer.bounds.insetBy(dx: -spread, dy: -spread)
-            layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
+            var radius = cornerRadius ?? layer.cornerRadius
+            if radius > 0 {
+                // for rounded rects, we need to increase the corner radius by the spread distance
+                // (but we floor to 0)
+                radius = max(radius + spread, 0)
+            }
+            layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: radius).cgPath
         }
     }
     
     private func applyShadow(layer: CALayer) {
         layer.shadowOpacity = opacity
         layer.shadowColor = color.cgColor
-        layer.shadowOffset = offset
-        layer.shadowRadius = blur / 2
+        layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+        layer.shadowRadius = blur / 2.5
     }
 }
