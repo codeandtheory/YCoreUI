@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import YCoreUI
+import YCoreUI
 
 final class UIViewContrainAspectRatioTests: XCTestCase {
     func test_constrainAspectRatio_deliversDefaultValues() {
