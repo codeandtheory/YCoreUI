@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import YCoreUI
+import YCoreUI
 
 final class ElevationTests: XCTestCase {
     func test_init_deliversGivenValues() {
