@@ -13,7 +13,7 @@ extension UIView {
     /// - Parameters:
     ///   - ratio: aspect ratio
     ///   - offset: offset to apply (default `.zero`)
-    ///   - relation: relation to evaluate (towards dimension) (default `.equal`)
+    ///   - relation: relation to evaluate (towards ratio) (default `.equal`)
     ///   - priority: constraint priority (default `.required`)
     ///   - isActive: whether to activate the constraint or not (default `true`)
     /// - Returns: the created layout constraint
