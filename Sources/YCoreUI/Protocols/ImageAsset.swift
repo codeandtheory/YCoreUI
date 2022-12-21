@@ -29,3 +29,6 @@ public protocol ImageAsset {
     /// - Returns: The named image or else `nil`,If the named asset cannot be loaded.
     func loadImage() -> UIImage?
 }
+
+extension ImageAsset {
+}
