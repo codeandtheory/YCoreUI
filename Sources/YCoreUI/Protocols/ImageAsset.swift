@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol ImageAsset {
-    /// The bundle containing the localized strings for this enum.
+    /// The bundle containing the image assets (default is `.main`)
     static var bundle: Bundle { get }
     
     /// Optional namespace for the image assets (default is `nil`).
