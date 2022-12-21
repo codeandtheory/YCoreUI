@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol ImageAsset: RawRepresentable where RawValue == String {
-    /// The bundle containing the image assets (default is `.main`)
+    /// The bundle containing the image assets for this enum (default is `.main`)
     static var bundle: Bundle { get }
     
     /// Optional namespace for the image assets (default is `nil`).
@@ -31,11 +31,23 @@ public protocol ImageAsset: RawRepresentable where RawValue == String {
 }
 
 extension ImageAsset {
-    /// The bundle containing the image assets (default is `.main`)
+    /// The bundle containing the image assets for this enum (default is `.main`)
     public static var bundle: Bundle { .main }
     
     /// Optional namespace for the image assets (default is `nil`)
     public static var namespace: String? { nil }
+    
+    /// fallback image to use in case an image asset cannot be loaded (default is `.systemPink`)
+    public static var fallbackImage: UIImage {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 16, height: 16))
+        let image = renderer.image { ctx in
+            let rectangle = CGRect(x: 0, y: 0, width: 16, height: 16)
+            ctx.cgContext.setFillColor(UIColor.systemPink.cgColor)
+            ctx.cgContext.addRect(rectangle)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+        return image
+    }
     
     /// Loads the named image
     ///
