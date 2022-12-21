@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol ImageAsset {
+public protocol ImageAsset: RawRepresentable where RawValue == String {
     /// The bundle containing the image assets (default is `.main`)
     static var bundle: Bundle { get }
     
@@ -36,4 +36,24 @@ extension ImageAsset {
     
     /// Optional namespace for the image assets (default is `nil`)
     public static var namespace: String? { nil }
+    
+    /// Loads the named image
+    ///
+    /// Default implementation uses `UIImage(named:in:compatibleWith:)` passing in the associated `namespace`
+    /// (prepended to `rawValue`) and `bundle`.
+    /// - Returns: The named image or else `nil` if the named asset cannot be loaded
+    public func loadImage() -> UIImage? {
+        let name: String
+        if let validNamespace = Self.namespace {
+            name = "\(validNamespace)/\(rawValue)"
+        } else {
+            name = rawValue
+        }
+        return UIImage(named: name, in: Self.bundle, compatibleWith: nil)
+    }
+    
+    /// An image asset for this name value.
+    ///
+    /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
+    public var image: UIImage { loadImage() ?? Self.fallbackImage }
 }
