@@ -31,4 +31,9 @@ public protocol ImageAsset {
 }
 
 extension ImageAsset {
+    /// The bundle containing the image assets (default is `.main`)
+    public static var bundle: Bundle { .main }
+    
+    /// Optional namespace for the image assets (default is `nil`)
+    public static var namespace: String? { nil }
 }
