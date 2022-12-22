@@ -13,7 +13,7 @@ import UIKit
 /// This data structure is designed to closely match how shadows are exported from Figma
 /// and also how they are specified for web/CSS.
 /// cf. https://www.w3.org/TR/css-backgrounds-3/#box-shadow
-public struct Elevation {
+public struct Elevation: Equatable {
     /// Specifies the horizontal offset of the shadow.
     ///
     /// A positive value draws a shadow that is offset to the right of the box, a negative length to the left.
