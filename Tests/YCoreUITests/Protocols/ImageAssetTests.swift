@@ -39,6 +39,14 @@ final class ImageAssetTests: XCTestCase {
             XCTAssertNotNil($0.loadImage())
         }
     }
+    
+    func test_imageAsset_defaultValues() {
+        XCTAssertEqual(DefaultImageAssets.bundle, .main)
+    }
+}
+
+enum DefaultImageAssets: String, CaseIterable, ImageAsset {
+    case plus
 }
 
 extension ImageAssetTests {
