@@ -10,31 +10,30 @@ import XCTest
 import YCoreUI
 
 final class ImageAssetTests: XCTestCase {
-    
-    func testBundle() {
+    func test_bundle() {
         XCTAssertEqual(Flags.bundle, .module)
         XCTAssertEqual(Icons.bundle, .module)
     }
     
-    func testNamespace() {
+    func test_namespace() {
         XCTAssertNil(Flags.namespace)
         XCTAssertEqual(Icons.namespace, "Icons")
         XCTAssertNil(Missing.namespace)
     }
     
-    func testFallbackImage() {
+    func test_fallbackImage() {
         XCTAssertNotNil(Flags.fallbackImage)
         XCTAssertNotNil(Icons.fallbackImage)
         XCTAssertEqual(Missing.fallbackImage, UIImage(systemName: "x.squareroot"))
     }
-
-    func testLoadImageWithNameSpace() {
+    
+    func test_loadImageWithNameSpace() {
         Icons.allCases.forEach {
             XCTAssertNotNil($0.loadImage())
         }
     }
     
-    func testLoadImageWithoutNameSpace() {
+    func test_loadImageWithoutNameSpace() {
         Flags.allCases.forEach {
             XCTAssertNotNil($0.loadImage())
         }
@@ -42,11 +41,12 @@ final class ImageAssetTests: XCTestCase {
     
     func test_imageAsset_defaultValues() {
         XCTAssertEqual(DefaultImageAssets.bundle, .main)
+        XCTAssertEqual(DefaultImageAssets.defaultCase.image.pngData(), DefaultImageAssets.fallbackImage.pngData())
     }
 }
 
 enum DefaultImageAssets: String, CaseIterable, ImageAsset {
-    case plus
+    case defaultCase
 }
 
 extension ImageAssetTests {
