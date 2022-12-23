@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+/// Any named image asset can be loaded from an asset catalog
+///
+/// All properties and functions have default implementations. At a minimum just have your string-based enum conform
+///  to `ImageAsset` (and have an asset catalog with matching assets). If your enum and assets live inside a Swift
+///  package, override `bundle` to return `.module`. If your assets are categorized within their asset catalog by
+///  a namespace, then override `namespace` to return the proper string prefix.
 public protocol ImageAsset: RawRepresentable where RawValue == String {
     /// The bundle containing the image assets for this enum (default is `.main`)
     static var bundle: Bundle { get }
