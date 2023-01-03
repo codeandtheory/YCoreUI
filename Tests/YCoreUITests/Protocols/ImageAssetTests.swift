@@ -13,6 +13,7 @@ final class ImageAssetTests: XCTestCase {
     func test_bundle() {
         XCTAssertEqual(Flags.bundle, .module)
         XCTAssertEqual(Icons.bundle, .module)
+        XCTAssertEqual(Missing.bundle, .main)
     }
     
     func test_namespace() {
@@ -39,9 +40,17 @@ final class ImageAssetTests: XCTestCase {
         }
     }
     
+    func test_missingImage() {
+        Missing.allCases.forEach {
+            XCTAssertNil($0.loadImage())
+            XCTAssertEqual($0.image, UIImage(systemName: "x.squareroot"))
+        }
+    }
+    
     func test_imageAsset_defaultValues() {
         XCTAssertEqual(DefaultImageAssets.bundle, .main)
         XCTAssertEqual(DefaultImageAssets.defaultCase.image.pngData(), DefaultImageAssets.fallbackImage.pngData())
+        XCTAssertNil(DefaultImageAssets.namespace)
     }
 }
 

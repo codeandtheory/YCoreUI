@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/// Any named image asset can be loaded from an asset catalog
+/// Any named image asset can be loaded from an asset catalog.
 ///
 /// All properties and functions have default implementations. At a minimum just have your string-based enum conform
 ///  to `ImageAsset` (and have an asset catalog with matching assets). If your enum and assets live inside a Swift
@@ -22,7 +22,8 @@ public protocol ImageAsset: RawRepresentable where RawValue == String {
     /// Optional namespace for the image assets (default is `nil`).
     static var namespace: String? { get }
     
-    /// Fallback image to use in case an image asset cannot be loaded (default is `.systemPink`)
+    /// Fallback image to use in case an image asset cannot be loaded.
+    /// (default is a 16 x 16 square filled with `.systemPink`)
     static var fallbackImage: UIImage { get }
     
     /// An image asset for this name value.
@@ -32,7 +33,7 @@ public protocol ImageAsset: RawRepresentable where RawValue == String {
     
     /// Loads the image.
     ///
-    /// - Returns: The named image or else `nil`,If the named asset cannot be loaded.
+    /// - Returns: The named image or else `nil` if the named asset cannot be loaded.
     func loadImage() -> UIImage?
 }
 
@@ -43,23 +44,22 @@ extension ImageAsset {
     /// Optional namespace for the image assets (default is `nil`)
     public static var namespace: String? { nil }
     
-    /// fallback image to use in case an image asset cannot be loaded (default is `.systemPink`)
+    /// Fallback image to use in case an image asset cannot be loaded.
+    /// (default is a 16 x 16 square filled with `.systemPink`)
     public static var fallbackImage: UIImage {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 16, height: 16))
         let image = renderer.image { ctx in
-            let rectangle = CGRect(x: 0, y: 0, width: 16, height: 16)
-            ctx.cgContext.setFillColor(UIColor.systemPink.cgColor)
-            ctx.cgContext.addRect(rectangle)
-            ctx.cgContext.drawPath(using: .fill)
+            UIColor.systemPink.setFill()
+            ctx.fill(CGRect(origin: .zero, size: renderer.format.bounds.size))
         }
         return image
     }
     
-    /// Loads the named image
+    /// Loads the named image.
     ///
     /// Default implementation uses `UIImage(named:in:compatibleWith:)` passing in the associated `namespace`
     /// (prepended to `rawValue`) and `bundle`.
-    /// - Returns: The named image or else `nil` if the named asset cannot be loaded
+    /// - Returns: The named image or else `nil` if the named asset cannot be loaded.
     public func loadImage() -> UIImage? {
         let name: String
         if let validNamespace = Self.namespace {
