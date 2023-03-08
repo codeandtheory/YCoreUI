@@ -6,7 +6,6 @@
 //  Copyright © 2022 Y Media Labs. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 /// Any named image asset can be loaded from an asset catalog.
