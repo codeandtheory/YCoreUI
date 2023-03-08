@@ -9,6 +9,30 @@
 import UIKit
 
 extension UIView {
+    /* Use-case examples
+     
+     // center a container view to its superview
+     let container = UIView()
+     addSubview(container)
+
+     container.constrainCenter()
+
+     // center a button horizontally
+     let button = UIButton()
+     addSubview(button)
+
+     button.constrainCenter(.x)
+
+     // align a button and a label vertically by their centers
+     let button = UIButton()
+     let label = UILabel()
+     addSubview(button)
+     addSubview(label)
+     
+     button.constrainCenter(.y, to: label)
+
+     */
+
     /// Center alignment options
     public struct Center: OptionSet {
         /// corresponding raw value
