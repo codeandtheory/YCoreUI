@@ -5,10 +5,15 @@ _Core components for iOS to accelerate building user interfaces in code._
   This lightweight framework primarily comprises:
   
   * UIView extensions for declarative Auto Layout
+  * Protocols to aid loading string, color, and image assets
   * UIColor extensions for WCAG 2.0 contrast ratio calculations
   * (iOS only) UIScrollView extensions to assist with keyboard avoidance
  
   It also contains miscellaneous other Foundation and UIKit extensions.
+
+Licensing
+----------
+Y—CoreUI is licensed under the [Apache 2.0 license](LICENSE).
 
 Documentation
 ----------
@@ -56,7 +61,7 @@ container.constrain(.leadingAnchor, to: leadingAnchor)
 container.constrain(.trailingAnchor, to: trailingAnchor)
 container.constrain(.topAnchor, to: topAnchor)
 container.constrain(.bottomAnchor, to: bottomAnchor)
- ```
+```
 
 There are overrides to handle the common use case of placing one view below another or to the trailing side of another:
 
@@ -110,7 +115,193 @@ addSubview(container)
 container.constrainEdgesToMargins()
 ```
 
-### 2. UIColor extensions for WCAG 2.0 contrast ratio calculations
+#### Constrain size
+
+There are three convenience methods for constraining the size of a view.
+
+```swift
+// constrain a button's size to 44 x 44 (3 different ways)
+let button = UIButton()
+addSubview(button)
+
+button.constrainSize(CGSize(width: 44, height: 44))
+button.constrainSize(width: 44, height: 44)
+button.constrainSize(44)
+```
+
+#### Constrain center
+
+There is an Auto Layout convenience method for centering views.
+
+```swift
+// center a container view to its superview
+let container = UIView()
+addSubview(container)
+
+container.constrainCenter()
+
+// center a button horizontally
+let button = UIButton()
+addSubview(button)
+
+button.constrainCenter(.x)
+
+// align a button and a label vertically by their centers
+let button = UIButton()
+let label = UILabel()
+addSubview(button)
+addSubview(label)
+
+button.constrainCenter(.y, to: label)
+```
+
+#### Constrain aspect ratio
+
+There is an Auto Layout convenience method for constraining aspect ratio:
+
+```swift
+// constrain to a 16:9 aspect ratio
+mediaPlayer.constrainAspectRatio(16.0 / 9)
+
+// constrain to a 1:1 aspect ratio
+profileImage.constrainAspectRatio(1)
+```
+
+### 2. Protocols to aid loading string, color, and image assets
+
+We have extensions that accelerate loading strings, colors, and images (and make it easy to unit test them).
+
+#### `Localizable`
+
+Easily load localized string resources from any string-based `Enum`. All you need to do is declare conformance to `Localizable` and you gain access to a `localized: String` property.
+
+```swift
+// Conform your Enum to Localizable
+enum SettingConstants: String, Localizable, CaseIterable {
+    case title = "Settings_Title"
+    case color = "Settings_Color"
+}
+
+// Then access the localized string
+label.text = SettingsConstants.title.localized
+```
+
+Unit testing is then easy:
+
+```swift
+func test_Setting_Constants_loadsLocalizedString() {
+    SettingConstants.allCases.forEach {
+        // Given a localized string constant
+        let string = $0.localized
+        // it should not be empty
+        XCTAssertFalse(string.isEmpty)
+        // and it should not equal its key
+        XCTAssertNotEqual($0.rawValue, string)
+    }
+}
+```
+
+The protocol also allows you to specify the bundle containing the localized strings and the optional table name.
+
+#### `Colorable`
+
+Easily load color assets from any string-based `Enum`. All you need to do is declare conformance to `Colorable` and you gain access to a `color: Color` property. You can even define a `fallbackColor` instead of `nil` or `.clear` so that UI elements won’t be invisible in the event of a failure (but they’re bright pink by default to catch your eye).
+
+```swift
+// Conform your Enum to Colorable
+enum PrimaryColors: String, CaseIterable, Colorable {
+        case primary50
+        case primary100
+}
+
+// Then access the color
+label.textColor = PrimaryColors.primary50.color
+```
+
+Unit testing is easy:
+
+```swift
+func test_PrimaryColors_loadsColor() {
+    PrimaryColors.allCases.forEach {
+        XCTAssertNotNil($0.loadColor())
+    }
+}
+```
+
+The protocol also allows you to specify the bundle containing the color assets, the optional namespace, and the fallback color.
+
+#### `ImageAsset`
+
+Easily load image assets from any string-based `Enum`. All you need to do is declare conformance to `ImageAsset` and you gain access to an `image: UIImage` property. You can even define a `fallbackImage` instead of `nil` so that UI elements won’t be invisible in the event of a failure (but it’s a bright pink square by default to catch your eye).
+
+```swift
+// Conform your Enum to ImageAsset
+enum Flags: String, ImageAsset {
+    case unitedStates = "flag_us"
+    case india = "flag_in"
+}
+
+let flag: Flags = .india
+// Then access the image
+let image: UIImage = flag.image
+```
+
+If you add `CaseIterable` to your enum, then it becomes super simple to write unit tests to make sure they’re working properly (and you can add, update, modify the enum cases without needing to update your unit test).
+
+```swift
+enum Icons: String, CaseIterable, ImageAsset {
+    case value1
+    case value2
+    ...
+    case valueLast
+}
+
+func test_iconsEnum_loadsImage() {
+    Icons.allCases.forEach {
+        XCTAssertNotNil($0.loadImage())
+    }
+}
+```
+
+The protocol also allows you to specify the bundle containing the image assets, the optional namespace, and the fallback image.
+
+#### `SystemImage`
+
+Easily load system images (SF Symbols) from any string-based `Enum`. All you need to do is declare conformance to `SystemImage` and you gain access to an `image: UIImage` property. Like `ImageAsset` above, you can define a `fallbackImage`.
+
+Why bother doing this when it just wraps `UIImage(systemName:)`? Because
+1. `UIImage(systemName:)` returns `UIImage?` while `SystemImage.image` returns `UIImage`.
+2. Organizing your system images into enums encourages better architecture (and helps avoid stringly-typed errors).
+3. Easier to unit test.
+
+```swift
+// Conform your Enum to SystemImage
+enum Checkbox: String, SystemImage {
+    case checked = "checkmark.square"
+    case unchecked = "square"
+}
+
+// Then access the image
+button.setImage(Checkbox.unchecked.image, for: .normal)
+button.setImage(Checkbox.checked.image, for: .selected)
+```
+
+If you add `CaseIterable` to your enum, then it becomes super simple to write unit tests to make sure they’re working properly (and you can add, update, modify the enum cases without needing to update your unit test).
+
+```swift
+enum Checkbox: String, CaseIterable, SystemImage {
+    case checked = "checkmark.square"
+    case unchecked = "square"
+}
+
+func test_checkboxEnum_loadsImage() {
+    Checkbox.allCases.forEach {
+        XCTAssertNotNil($0.loadImage())
+    }
+}
+```
+
+### 3. UIColor extensions for WCAG 2.0 contrast ratio calculations
 
 Y—CoreUI contains a number of extensions to make working with colors easier. The most useful of them may be WCAG 2.0 contrast calculations. Given any two colors (representing foreground and background colors), you can calculate the contrast ration between them and evaluate whether that passes particular WCAG 2.0 standards (AA or AAA). You can even write unit tests to quickly check all color pairs in your app across all color modes. That could look like this:
 
@@ -185,7 +376,7 @@ final class ColorsTests: XCTestCase {
 }
 ```
 
-### 3. UIScrollView extensions to assist with keyboard avoidance
+### 4. UIScrollView extensions to assist with keyboard avoidance
 
 #### FormViewController
 
@@ -281,7 +472,7 @@ Prior to submitting a pull request you should:
 
 When submitting a pull request:
 
-* Use the [provided pull request template](PULL_REQUEST_TEMPLATE.md) and populate the Introduction, Purpose, and Scope fields at a minimum.
+* Use the [provided pull request template](.github/pull_request_template.md) and populate the Introduction, Purpose, and Scope fields at a minimum.
 * If you're submitting before and after screenshots, movies, or GIF's, enter them in a two-column table so that they can be viewed side-by-side.
 
 When merging a pull request:

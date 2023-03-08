@@ -9,6 +9,16 @@
 import UIKit
 
 extension UIView {
+    /* Use-case examples
+
+     // constrain to a 16:9 aspect ratio
+     mediaPlayer.constrainAspectRatio(16.0 / 9)
+
+     // constrain to a 1:1 aspect ratio
+     profileImage.constrainAspectRatio(1)
+
+     */
+
     /// Constrain the aspect ratio for the receiving view.
     /// - Parameters:
     ///   - ratio: aspect ratio
