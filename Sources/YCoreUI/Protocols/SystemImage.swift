@@ -50,5 +50,14 @@ extension SystemImage {
     /// A system image for this name value.
     ///
     /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
-    public var image: UIImage { loadImage() ?? Self.fallbackImage }
+    public var image: UIImage {
+        guard let image = loadImage() else {
+            if YCoreUI.isLoggingEnabled {
+                YCoreUI.imageLogger.warning("System image named \(rawValue) failed to load.")
+            }
+            return Self.fallbackImage
+        }
+
+        return image
+    }
 }

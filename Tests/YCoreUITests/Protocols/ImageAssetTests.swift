@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import YCoreUI
+@testable import YCoreUI
 
 final class ImageAssetTests: XCTestCase {
     func test_bundle() {
@@ -37,20 +37,35 @@ final class ImageAssetTests: XCTestCase {
     func test_loadImageWithoutNameSpace() {
         Flags.allCases.forEach {
             XCTAssertNotNil($0.loadImage())
+            XCTAssertNotEqual($0.image.pngData(), DefaultImageAssets.fallbackImage.pngData())
         }
     }
     
     func test_missingImage() {
+        YCoreUI.isLoggingEnabled = false
+
         Missing.allCases.forEach {
             XCTAssertNil($0.loadImage())
             XCTAssertEqual($0.image, UIImage(systemName: "x.squareroot"))
         }
+
+        YCoreUI.isLoggingEnabled = true
     }
     
     func test_imageAsset_defaultValues() {
         XCTAssertEqual(DefaultImageAssets.bundle, .main)
         XCTAssertEqual(DefaultImageAssets.defaultCase.image.pngData(), DefaultImageAssets.fallbackImage.pngData())
         XCTAssertNil(DefaultImageAssets.namespace)
+    }
+
+    func test_calculateName_deliversCorrectName() {
+        Flags.allCases.forEach {
+            XCTAssertEqual($0.calculateName(), $0.rawValue)
+        }
+
+        Icons.allCases.forEach {
+            XCTAssertEqual($0.calculateName(), "Icons/\($0.rawValue)")
+        }
     }
 }
 

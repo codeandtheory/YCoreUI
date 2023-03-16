@@ -18,14 +18,19 @@ final class SystemImageTests: XCTestCase {
     func test_loadImage_deliversImage() {
         Symbols.allCases.forEach {
             XCTAssertNotNil($0.loadImage())
+            XCTAssertNotEqual($0.image.pngData(), DefaultSymbols.fallbackImage.pngData())
         }
     }
 
     func test_missingImage_deliversCustomFallback() {
+        YCoreUI.isLoggingEnabled = false
+
         MissingSymbols.allCases.forEach {
             XCTAssertNil($0.loadImage())
             XCTAssertEqual($0.image, UIImage(systemName: "x.squareroot"))
         }
+
+        YCoreUI.isLoggingEnabled = true
     }
 
     func test_systemImage_deliversDefaultFallback() {

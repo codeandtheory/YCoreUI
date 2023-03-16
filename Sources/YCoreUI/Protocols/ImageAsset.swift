@@ -60,17 +60,30 @@ extension ImageAsset {
     /// (prepended to `rawValue`) and `bundle`.
     /// - Returns: The named image or else `nil` if the named asset cannot be loaded.
     public func loadImage() -> UIImage? {
+        UIImage(named: calculateName(), in: Self.bundle, compatibleWith: nil)
+    }
+
+    internal func calculateName() -> String {
         let name: String
         if let validNamespace = Self.namespace {
             name = "\(validNamespace)/\(rawValue)"
         } else {
             name = rawValue
         }
-        return UIImage(named: name, in: Self.bundle, compatibleWith: nil)
+        return name
     }
     
     /// An image asset for this name value.
     ///
     /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
-    public var image: UIImage { loadImage() ?? Self.fallbackImage }
+    public var image: UIImage {
+        guard let image = loadImage() else {
+            if YCoreUI.isLoggingEnabled {
+                YCoreUI.imageLogger.warning("Image named \(calculateName()) failed to load from bundle.")
+            }
+            return Self.fallbackImage
+        }
+
+        return image
+    }
 }
