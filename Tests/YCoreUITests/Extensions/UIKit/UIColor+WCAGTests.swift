@@ -53,9 +53,11 @@ final class UIColorWCAGTests: XCTestCase {
                 XCTAssert(
                     color1.isSufficientContrast(to: color2, context: $0.context, level: .AA),
                     String(
-                        format: "#%@ vs #%@ ratio = %.02f under %@ Mode%@",
+                        format: "#%@ %.2f vs #%@ %.2f ratio = %.02f under %@ Mode%@",
                         color1.rgbDisplayString(prefix: "#"),
+                        color1.rgbaComponents.alpha,
                         color2.rgbDisplayString(prefix: "#"),
+                        color2.rgbaComponents.alpha,
                         color1.contrastRatio(to: color2),
                         traits.userInterfaceStyle == .dark ? "Dark" : "Light",
                         traits.accessibilityContrast == .high ? " Increased Contrast" : ""
@@ -133,6 +135,48 @@ final class UIColorWCAGTests: XCTestCase {
         // Their contrast with each other is 21
         XCTAssertEqual(UIColor.white.contrastRatio(to: .black), 21.0)
         XCTAssertEqual(UIColor.black.contrastRatio(to: .white), 21.0)
+    }
+
+    func test_contrastRatio_deliversRatioForOneTransparentColor() {
+        let color = UIColor(rgb: 0x1B0B99)
+        let color75 = color.withAlphaComponent(0.75)
+        let color50 = color.withAlphaComponent(0.50)
+        let color25 = color.withAlphaComponent(0.25)
+        let white = UIColor.white
+        let black = UIColor.black
+
+        // contrast against white
+        contrastRatiosEqual(ratio1: color.contrastRatio(to: white), ratio2: 13.51)
+        contrastRatiosEqual(ratio1: color75.contrastRatio(to: white), ratio2: 7.12)
+        contrastRatiosEqual(ratio1: white.contrastRatio(to: color75), ratio2: 7.12)
+        contrastRatiosEqual(ratio1: color50.contrastRatio(to: white), ratio2: 3.30)
+        contrastRatiosEqual(ratio1: white.contrastRatio(to: color50), ratio2: 3.30)
+        contrastRatiosEqual(ratio1: color25.contrastRatio(to: white), ratio2: 1.71)
+        contrastRatiosEqual(ratio1: white.contrastRatio(to: color25), ratio2: 1.71)
+
+        // contrast against black
+        contrastRatiosEqual(ratio1: color.contrastRatio(to: black), ratio2: 1.55)
+        contrastRatiosEqual(ratio1: color75.contrastRatio(to: black), ratio2: 1.31)
+        contrastRatiosEqual(ratio1: black.contrastRatio(to: color75), ratio2: 1.31)
+        contrastRatiosEqual(ratio1: color50.contrastRatio(to: black), ratio2: 1.15)
+        contrastRatiosEqual(ratio1: black.contrastRatio(to: color50), ratio2: 1.15)
+        contrastRatiosEqual(ratio1: color25.contrastRatio(to: black), ratio2: 1.05)
+        contrastRatiosEqual(ratio1: black.contrastRatio(to: color25), ratio2: 1.05)
+    }
+
+    func test_contrastRatio_deliversNanForTwoTransparentColors() {
+        let color = UIColor(rgb: 0x1B0B99)
+        let color75 = color.withAlphaComponent(0.75)
+        let color50 = color.withAlphaComponent(0.50)
+
+        XCTAssertLessThan(color75.rgbaComponents.alpha, 1.0)
+        XCTAssertLessThan(color50.rgbaComponents.alpha, 1.0)
+        XCTAssertTrue(color75.contrastRatio(to: color50).isNaN)
+        YCoreUI.isLoggingEnabled = false
+        XCTAssertTrue(color50.contrastRatio(to: color75).isNaN)
+        XCTAssertFalse(color50.isSufficientContrast(to: color75))
+        XCTAssertFalse(color75.isSufficientContrast(to: color50))
+        YCoreUI.isLoggingEnabled = true
     }
 
     private func contrastRatiosEqual(ratio1: CGFloat, ratio2: CGFloat) {

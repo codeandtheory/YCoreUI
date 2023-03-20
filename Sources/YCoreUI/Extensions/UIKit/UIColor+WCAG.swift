@@ -91,8 +91,31 @@ extension UIColor {
     /// - Returns: the contrast ratio between the two colors ranging from 1.0 (identical) to 21.0
     /// (the contrast between pure white and pure black)
     public func contrastRatio(to otherColor: UIColor) -> CGFloat {
-        let ourLuminance = self.luminance
-        let theirLuminance = otherColor.luminance
+        let ourAlpha = self.rgbaComponents.alpha
+        let theirAlpha = otherColor.rgbaComponents.alpha
+        guard ourAlpha == 1.0 || theirAlpha == 1.0 else {
+            // can't calculate a contrast between two transparent colors
+            if YCoreUI.isLoggingEnabled {
+                YCoreUI.colorLogger.warning(
+                    "Transparent color \(self) cannot calculate contrast ratio to other transparent color \(otherColor)."
+                )
+            }
+            return .nan
+        }
+
+        var color1 = self
+        var color2 = otherColor
+
+        if ourAlpha < 1.0 {
+            // if color1 is partially transparent, blend it with color2 before evaluating
+            color1 = color2.blended(by: ourAlpha, with: color1)
+        } else if theirAlpha < 1.0 {
+            // if color2 is partially transparent, blend it with color1 before evaluating
+            color2 = color1.blended(by: theirAlpha, with: color2)
+        }
+
+        let ourLuminance = color1.luminance
+        let theirLuminance = color2.luminance
         let lighterColor = min(ourLuminance, theirLuminance)
         let darkerColor = max(ourLuminance, theirLuminance)
         return 1 / ((lighterColor + 0.05) / (darkerColor + 0.05))
