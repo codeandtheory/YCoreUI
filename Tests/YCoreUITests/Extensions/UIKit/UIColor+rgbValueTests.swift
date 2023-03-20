@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import YCoreUI
 
 // Large tuples help us build unit test expectations concisely
 // swiftlint:disable large_tuple
@@ -41,5 +42,33 @@ final class UIColorRgbValueTests: XCTestCase {
 
         // We exect each rgb color channel value to be rounded appropriately
         XCTAssertEqual(color.rgbDisplayString(), "80BFA6")
+    }
+
+    func testSuffixes() {
+        testCases.forEach {
+            XCTAssertFalse($0.color.rgbDisplayString().hasSuffix("⚠️"))
+        }
+
+        let p3Colors = [
+            UIColor(displayP3Red: 1, green: 0, blue: 0, alpha: 1),
+            UIColor(displayP3Red: 0, green: 1, blue: 0, alpha: 1),
+            UIColor(displayP3Red: 0, green: 0, blue: 1, alpha: 1),
+            UIColor(displayP3Red: 1, green: 1, blue: 0, alpha: 1),
+            UIColor(displayP3Red: 1, green: 0, blue: 1, alpha: 1),
+            UIColor(displayP3Red: 0, green: 1, blue: 1, alpha: 1),
+            UIColor(red: 1.25, green: 0, blue: 0, alpha: 1),
+            UIColor(red: 0, green: 1.25, blue: 0, alpha: 1),
+            UIColor(red: 0, green: 0, blue: 1.25, alpha: 1),
+            UIColor(red: -0.25, green: 0, blue: 0, alpha: 1),
+            UIColor(red: 0, green: -0.25, blue: 0, alpha: 1),
+            UIColor(red: 0, green: 0, blue: -0.25, alpha: 1)
+        ]
+
+        p3Colors.forEach {
+            XCTAssertTrue($0.rgbDisplayString().hasSuffix("⚠️"))
+            YCoreUI.isLoggingEnabled = false
+        }
+
+        YCoreUI.isLoggingEnabled = true
     }
 }
