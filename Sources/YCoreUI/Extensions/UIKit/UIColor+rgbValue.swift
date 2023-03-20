@@ -34,15 +34,17 @@ public extension UIColor {
         let g = Int(round(comp.green * 255))
         let b = Int(round(comp.blue * 255))
         let isRGB = (r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255)
+        let prefix = prefix ?? ""
         let value = String(
             format: format,
             min(max(r, 0), 255),
             min(max(g, 0), 255),
             min(max(b, 0), 255)
         )
+        let suffix = (isDebug && !isRGB) ? "⚠️" : ""
         if !isRGB && YCoreUI.isLoggingEnabled {
             YCoreUI.colorLogger.warning("Color \(self) falls outside of the sRGB color space.")
         }
-        return "\(prefix ?? "")\(value)\(isDebug && !isRGB ? "⚠️" : "")"
+        return "\(prefix)\(value)\(suffix)"
     }
 }
