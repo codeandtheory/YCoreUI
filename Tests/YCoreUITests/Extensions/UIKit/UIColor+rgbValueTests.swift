@@ -47,6 +47,8 @@ final class UIColorRgbValueTests: XCTestCase {
     func testSuffixes() {
         testCases.forEach {
             XCTAssertFalse($0.color.rgbDisplayString().hasSuffix("⚠️"))
+            XCTAssertFalse($0.color.rgbDebugDisplayString().hasSuffix("⚠️"))
+            XCTAssertEqual($0.color.rgbDisplayString(), $0.color.rgbDebugDisplayString())
         }
 
         let p3Colors = [
@@ -65,7 +67,8 @@ final class UIColorRgbValueTests: XCTestCase {
         ]
 
         p3Colors.forEach {
-            XCTAssertTrue($0.rgbDisplayString().hasSuffix("⚠️"))
+            XCTAssertFalse($0.rgbDisplayString().hasSuffix("⚠️"))
+            XCTAssertTrue($0.rgbDebugDisplayString().hasSuffix("⚠️"))
             YCoreUI.isLoggingEnabled = false
         }
 
