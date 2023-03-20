@@ -97,7 +97,9 @@ extension UIColor {
             // can't calculate a contrast between two transparent colors
             if YCoreUI.isLoggingEnabled {
                 YCoreUI.colorLogger.warning(
-                    "Transparent color \(self) cannot calculate contrast ratio to other transparent color \(otherColor)."
+                    """
+                    Transparent color \(self) cannot calculate contrast ratio to other transparent color \(otherColor).
+                    """
                 )
             }
             return .nan
