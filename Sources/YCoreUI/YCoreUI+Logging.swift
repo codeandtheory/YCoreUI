@@ -18,4 +18,6 @@ public struct YCoreUI {
 internal extension YCoreUI {
     /// Logger for warnings related to image loading. cf. `ImageAsset` and `SystemImage`
     static let imageLogger = Logger(subsystem: "YCoreUI", category: "images")
+    /// Logger for warnings related to colors. cf `UIColor+rgbValue.swift`
+    static let colorLogger = Logger(subsystem: "YCoreUI", category: "colors")
 }
