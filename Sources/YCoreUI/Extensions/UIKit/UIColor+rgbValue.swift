@@ -15,6 +15,19 @@ public extension UIColor {
     ///   - isUppercase: whether the hex values should be upper or lower case
     /// - Returns: the formatted hexadecimal string
     func rgbDisplayString(prefix: String? = nil, isUppercase: Bool = true) -> String {
+        _rgbDisplayString(prefix: prefix, isUppercase: isUppercase, isDebug: false)
+    }
+
+    /// Formats a color as an RGB hexadecimal string. Appropriate for debug printing.
+    /// - Parameters:
+    ///   - prefix: optional prefix to precede the hexadecimal value such as `0x` or `#` (default = nil)
+    ///   - isUppercase: whether the hex values should be upper or lower case
+    /// - Returns: the formatted hexadecimal string (with an `⚠️` for colors that fall outside of the sRGB color space)
+    func rgbDebugDisplayString(prefix: String? = nil, isUppercase: Bool = true) -> String {
+        _rgbDisplayString(prefix: prefix, isUppercase: isUppercase, isDebug: true)
+    }
+
+    private func _rgbDisplayString(prefix: String?, isUppercase: Bool, isDebug: Bool) -> String {
         let comp = rgbaComponents
         let format = isUppercase ? "%02X%02X%02X" : "%02x%02x%02x"
         let r = Int(round(comp.red * 255))
@@ -30,6 +43,6 @@ public extension UIColor {
         if !isRGB && YCoreUI.isLoggingEnabled {
             YCoreUI.colorLogger.warning("Color \(self) falls outside of the sRGB color space.")
         }
-        return "\(prefix ?? "")\(value)\(isRGB ? "" : "⚠️")"
+        return "\(prefix ?? "")\(value)\(isDebug && !isRGB ? "⚠️" : "")"
     }
 }
