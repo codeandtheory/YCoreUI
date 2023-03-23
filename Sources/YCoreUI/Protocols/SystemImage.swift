@@ -40,9 +40,7 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
 
 extension SystemImage {
     /// Image will scale according to the specified text style.
-    public static var textStyle: UIFont.TextStyle? {
-        .body
-    }
+    public static var textStyle: UIFont.TextStyle? { .body }
     
     /// Image configuration to be used in `loadImage()`.
     ///

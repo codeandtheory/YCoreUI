@@ -44,8 +44,8 @@ final class SystemImageTests: XCTestCase {
     }
     
     func test_customImageScaling() {
-        XCTAssertEqual(SymbolCustomScaling.textStyle, .largeTitle)
-        XCTAssertEqual(SymbolCustomScaling.configuration, UIImage.SymbolConfiguration(textStyle: .largeTitle))
+        XCTAssertEqual(SymbolCustomScaling.textStyle, .title1)
+        XCTAssertEqual(SymbolCustomScaling.configuration, UIImage.SymbolConfiguration(textStyle: .title1))
     }
     
     func test_systemImage_deliversDefaultFallback() {
@@ -76,14 +76,16 @@ extension SystemImageTests {
     }
     
     enum SymbolWithoutScaling: String, CaseIterable, SystemImage {
-        static var textStyle: UIFont.TextStyle?
-        
         case checked = "checkmark.square"
+        case unchecked = "square"
+
+        static var textStyle: UIFont.TextStyle? { nil }
     }
     
     enum SymbolCustomScaling: String, CaseIterable, SystemImage {
-        static var textStyle: UIFont.TextStyle? { .largeTitle }
-        
         case checked = "checkmark.square"
+        case unchecked = "square"
+
+        static var textStyle: UIFont.TextStyle? { .title1 }
     }
 }
