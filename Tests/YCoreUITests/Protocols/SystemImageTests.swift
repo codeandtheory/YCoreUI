@@ -32,7 +32,22 @@ final class SystemImageTests: XCTestCase {
 
         YCoreUI.isLoggingEnabled = true
     }
-
+    
+    func test_defaultImageScaling() {
+        XCTAssertEqual(Symbols.textStyle, .body)
+        XCTAssertEqual(Symbols.configuration, UIImage.SymbolConfiguration(textStyle: .body))
+    }
+    
+    func test_imageWithoutScaling() {
+        XCTAssertNil(SymbolWithoutScaling.textStyle)
+        XCTAssertNil(SymbolWithoutScaling.configuration)
+    }
+    
+    func test_customImageScaling() {
+        XCTAssertEqual(SymbolCustomScaling.textStyle, .largeTitle)
+        XCTAssertEqual(SymbolCustomScaling.configuration, UIImage.SymbolConfiguration(textStyle: .largeTitle))
+    }
+    
     func test_systemImage_deliversDefaultFallback() {
         XCTAssertEqual(DefaultSymbols.defaultCase.image.pngData(), DefaultSymbols.fallbackImage.pngData())
     }
@@ -58,5 +73,17 @@ extension SystemImageTests {
 
     enum DefaultSymbols: String, CaseIterable, SystemImage {
         case defaultCase
+    }
+    
+    enum SymbolWithoutScaling: String, CaseIterable, SystemImage {
+        static var textStyle: UIFont.TextStyle?
+        
+        case checked = "checkmark.square"
+    }
+    
+    enum SymbolCustomScaling: String, CaseIterable, SystemImage {
+        static var textStyle: UIFont.TextStyle? { .largeTitle }
+        
+        case checked = "checkmark.square"
     }
 }
