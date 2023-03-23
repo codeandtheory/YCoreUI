@@ -271,8 +271,9 @@ Easily load system images (SF Symbols) from any string-based `Enum`. All you nee
 
 Why bother doing this when it just wraps `UIImage(systemName:)`? Because
 1. `UIImage(systemName:)` returns `UIImage?` while `SystemImage.image` returns `UIImage`.
-2. Organizing your system images into enums encourages better architecture (and helps avoid stringly-typed errors).
-3. Easier to unit test.
+2. By default `SystemImage.image` returns images that scale with Dynamic Type.
+3. Organizing your system images into enums encourages better architecture (and helps avoid stringly-typed errors).
+4. Easier to unit test.
 
 ```swift
 // Conform your Enum to SystemImage
