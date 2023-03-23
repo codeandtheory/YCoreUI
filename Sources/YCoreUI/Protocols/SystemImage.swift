@@ -21,6 +21,17 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
     ///
     /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
     var image: UIImage { get }
+    
+    /// Image will scale according to the specified text style.
+    ///
+    /// Default implementation is `.body`.
+    static var textStyle: UIFont.TextStyle? { get }
+    
+    /// Image configuration to be used in `loadImage()`.
+    ///
+    /// Default implementation is `UIImage.SymbolConfiguration(textStyle: textStyle)`.
+    /// Returns `nil` when `textStyle` is `nil`.
+    static var configuration: UIImage.Configuration? { get }
 
     /// Loads the named system image.
     /// - Returns: The named system image or else `nil` if the system image cannot be loaded.
@@ -28,6 +39,19 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
 }
 
 extension SystemImage {
+    /// Image will scale according to the specified text style.
+    public static var textStyle: UIFont.TextStyle? { .body }
+    
+    /// Image configuration to be used in `loadImage()`.
+    ///
+    /// Returns `nil` when `textStyle` is `nil`.
+    public static var configuration: UIImage.Configuration? {
+        guard let textStyle = textStyle else {
+            return nil
+        }
+        return UIImage.SymbolConfiguration(textStyle: textStyle)
+    }
+    
     /// Fallback image to use in case a system image cannot be loaded.
     /// (default is a 16 x 16 square filled with `.systemPink`)
     public static var fallbackImage: UIImage {
@@ -44,7 +68,7 @@ extension SystemImage {
     /// Default implementation uses `UIImage(systemName:)` passing in the associated `rawValue`.
     /// - Returns: The named system image or else `nil` if the system image cannot be loaded.
     public func loadImage() -> UIImage? {
-        UIImage(systemName: rawValue)
+        UIImage(systemName: rawValue, withConfiguration: Self.configuration)
     }
 
     /// A system image for this name value.
