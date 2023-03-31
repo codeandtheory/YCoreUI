@@ -394,6 +394,60 @@ scrollView.registerKeyboardNotifications()
 💡 Almost every full-screen view in your app that contains any text should be a vertical scroll view because of the vagaries of localization, Dynamic Type, potentially small screen sizes, and landscape mode support.
 </aside>
 
+### 5. Other
+
+#### Elevation
+
+`Elevation` is a model object to define shadows similarly to [W3C box-shadows](https://www.w3.org/TR/css-backgrounds-3/#box-shadow) and [Figma drop shadows](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects#shadow). It has the following parameters that match how Figma (and web) define drop shadows:
+
+* offset (x and y)
+* blur
+* spread
+* color
+
+`Elevation` has an `apply` method that then applies that shadow effect to a `CALayer`. Remember to call it every time your color mode changes to update the shadow color (a `CGColor`).
+
+```swift
+let button = UIButton()
+let elevation = Elevation(
+    xOffset: 0,
+    yOffset: 2,
+    blur: 5,
+    spread: 0,
+    color: .black,
+    opacity: 0.5
+)
+elevation.apply(layer: button.layer, cornerRadius: 8)
+```
+
+#### Animation
+
+`Animation` is a model object to define UIView animations. It has the following parameters:
+
+* duration
+* delay
+* curve
+
+`Animation.curve` is an enum with associated values that can be either `.regular` or `.spring`.
+
+There is a `UIView` class override method for `animate` that takes an `Animation` object.
+
+The advantage of adopting the `Animation` structure is that with a single method you can animate either a regular or spring animation. This allows us to build components where the user can customize the animations used without having our code be overly complex or fragile.
+
+```swift
+let button = UIButton()
+button.alpha = 1
+let animation = Animation(duration: 0.25, curve: .regular(options: .curveEaseOut))
+
+UIView.animate(with: animation) {
+    // fade button out
+    button.alpha = 0
+} completion: {
+    // remove it from the superview when done
+    button.removeFromSuperview()
+}
+``` 
+
 Installation
 ----------
 
