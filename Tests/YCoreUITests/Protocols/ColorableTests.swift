@@ -31,20 +31,44 @@ final class ColorableTests: XCTestCase {
     func testLoadColorWithoutNamespace() {
         WarningColors.allCases.forEach {
             XCTAssertNotNil($0.loadColor())
+            XCTAssertNotEqual($0.color, WarningColors.fallbackColor)
         }
     }
 
     func testLoadColorWithNamespace() {
         ErrorColors.allCases.forEach {
             XCTAssertNotNil($0.loadColor())
+            XCTAssertNotEqual($0.color, ErrorColors.fallbackColor)
         }
     }
 
     func testMissingColor() {
+        YCoreUI.isLoggingEnabled = false
+
         PrimaryColors.allCases.forEach {
             XCTAssertNil($0.loadColor())
             XCTAssertEqual($0.color, PrimaryColors.fallbackColor)
         }
+        
+        YCoreUI.isLoggingEnabled = true
+    }
+
+    func test_calculateName_deliversCorrectName() {
+        PrimaryColors.allCases.forEach {
+            XCTAssertEqual($0.calculateName(), $0.rawValue)
+        }
+
+        ErrorColors.allCases.forEach {
+            XCTAssertEqual($0.calculateName(), "Error/\($0.rawValue)")
+        }
+
+        WarningColors.allCases.forEach {
+            XCTAssertEqual($0.calculateName(), $0.rawValue)
+        }
+    }
+
+    func test_colorable_deliversDefaultFallbackColor() {
+        XCTAssertEqual(DefaultColors.defaultCase.color, DefaultColors.fallbackColor)
     }
 }
 
@@ -69,5 +93,9 @@ private extension ColorableTests {
         case primary100
 
         static var fallbackColor: UIColor { .systemPurple }
+    }
+
+    enum DefaultColors: String, CaseIterable, Colorable {
+        case defaultCase
     }
 }
