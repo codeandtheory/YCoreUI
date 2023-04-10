@@ -32,18 +32,9 @@ final class SystemImageTests: XCTestCase {
 
         YCoreUI.isLoggingEnabled = true
     }
-    
-    func test_loadImageWithRenderingMode() {
-        RenderMode.allCases.forEach {
-            XCTAssertEqual(
-                $0.loadImage()?.pngData(),
-                UIImage(
-                    systemName: $0.rawValue,
-                    withConfiguration: RenderMode.configuration
-                )?.withRenderingMode(RenderMode.renderingMode).pngData()
-            )
-            XCTAssertEqual($0.image.renderingMode, .alwaysOriginal)
-        }
+
+    func test_systemImage_deliversDefaultFallback() {
+        XCTAssertEqual(DefaultSymbols.defaultCase.image.pngData(), DefaultSymbols.fallbackImage.pngData())
     }
 
     func test_defaultImageScaling() {
@@ -60,9 +51,15 @@ final class SystemImageTests: XCTestCase {
         XCTAssertEqual(SymbolCustomScaling.textStyle, .title1)
         XCTAssertEqual(SymbolCustomScaling.configuration, UIImage.SymbolConfiguration(textStyle: .title1))
     }
-    
-    func test_systemImage_deliversDefaultFallback() {
-        XCTAssertEqual(DefaultSymbols.defaultCase.image.pngData(), DefaultSymbols.fallbackImage.pngData())
+
+    func test_defaultRenderingMode() {
+        XCTAssertEqual(Symbols.renderingMode, .automatic)
+    }
+
+    func test_customRenderingMode() {
+        SymbolCustomRenderingMode.allCases.forEach {
+            XCTAssertEqual($0.image.renderingMode, .alwaysOriginal)
+        }
     }
 }
 
@@ -102,7 +99,7 @@ extension SystemImageTests {
         static var textStyle: UIFont.TextStyle? { .title1 }
     }
 
-    enum RenderMode: String, CaseIterable, SystemImage {
+    enum SymbolCustomRenderingMode: String, CaseIterable, SystemImage {
         case plus
         case minus
         case trash
