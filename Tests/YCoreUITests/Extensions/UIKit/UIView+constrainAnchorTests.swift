@@ -9,6 +9,8 @@
 import XCTest
 @testable import YCoreUI
 
+// swiftlint:disable superfluous_disable_command type_body_length
+
 final class UIViewConstrainAnchorTests: XCTestCase {
     func testXAxisConstraints() {
         let (sut, relations) = makeSUT()
@@ -378,3 +380,4 @@ private extension MockLayoutContainer {
         addSubview(view2)
     }
 }
+// swiftlint:enable superfluous_disable_command type_body_length

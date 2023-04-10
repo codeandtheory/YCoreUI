@@ -10,7 +10,7 @@ import UIKit
 
 // This relatively simple tuple (four float values representing the color channels)
 // is already a released public api.
-// swiftlint: disable large_tuple
+// swiftlint:disable superfluous_disable_command large_tuple
 
 /// Tuple representing Red, Green, Blue, and Alpha color channel components
 public typealias RGBAComponents = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -29,3 +29,4 @@ public extension UIColor {
         return (red, green, blue, alpha)
     }
 }
+// swiftlint: enable superfluous_disable_command large_tuple

@@ -10,7 +10,7 @@ import XCTest
 @testable import YCoreUI
 
 // Large tuples help us build unit test expectations concisely
-// swiftlint:disable large_tuple
+// swiftlint:disable superfluous_disable_command large_tuple
 
 final class UIColorWCAGTests: XCTestCase {
     typealias ColorInputs = (foreground: UIColor, background: UIColor, context: WCAGContext)
@@ -183,3 +183,4 @@ final class UIColorWCAGTests: XCTestCase {
         XCTAssertEqual(round(ratio1 * 100) / 100, round(ratio2 * 100) / 100)
     }
 }
+// swiftlint: enable large_tuple superfluous_disable_command

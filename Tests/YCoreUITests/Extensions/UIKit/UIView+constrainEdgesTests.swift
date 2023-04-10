@@ -51,6 +51,7 @@ final class UIViewConstrainEdgesTests: XCTestCase {
         XCTAssertEqual(trailing?.constant, -insets.trailing)
     }
 
+    // swiftlint:disable function_body_length
     func testPartialEdges() {
         let (sut, _) = makeSUT()
         let edges: [NSDirectionalRectEdge] = [
