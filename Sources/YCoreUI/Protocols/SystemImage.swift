@@ -17,6 +17,9 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
     /// (default is a 16 x 16 square filled with `.systemPink`)
     static var fallbackImage: UIImage { get }
 
+    /// Optional rendering mode to use for the image (default is `nil`)
+    static var renderingMode: UIImage.RenderingMode? { get }
+
     /// A system image for this name value.
     ///
     /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
@@ -41,7 +44,10 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
 extension SystemImage {
     /// Image will scale according to the specified text style.
     public static var textStyle: UIFont.TextStyle? { .body }
-    
+
+    /// Optional rendering mode to use for the image (default is `nil`)
+    public static var renderingMode: UIImage.RenderingMode? { nil }
+
     /// Image configuration to be used in `loadImage()`.
     ///
     /// Returns `nil` when `textStyle` is `nil`.
@@ -68,7 +74,11 @@ extension SystemImage {
     /// Default implementation uses `UIImage(systemName:)` passing in the associated `rawValue`.
     /// - Returns: The named system image or else `nil` if the system image cannot be loaded.
     public func loadImage() -> UIImage? {
-        UIImage(systemName: rawValue, withConfiguration: Self.configuration)
+        let image = UIImage(systemName: rawValue, withConfiguration: Self.configuration)
+        guard let renderingMode = Self.renderingMode else {
+            return image
+        }
+        return image?.withRenderingMode(renderingMode)
     }
 
     /// A system image for this name value.

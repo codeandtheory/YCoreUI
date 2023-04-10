@@ -20,10 +20,7 @@ public protocol ImageAsset: RawRepresentable where RawValue == String {
     
     /// Optional namespace for the image assets (default is `nil`).
     static var namespace: String? { get }
-
-    /// Optional renderingMode to use for the image (default is `nil`)
-    static var renderingMode: UIImage.RenderingMode? { get }
-
+    
     /// Fallback image to use in case an image asset cannot be loaded.
     /// (default is a 16 x 16 square filled with `.systemPink`)
     static var fallbackImage: UIImage { get }
@@ -42,10 +39,7 @@ public protocol ImageAsset: RawRepresentable where RawValue == String {
 extension ImageAsset {
     /// The bundle containing the image assets for this enum (default is `.main`)
     public static var bundle: Bundle { .main }
-
-    /// Optional renderingMode to use for the image (default is `nil`)
-    public static var renderingMode: UIImage.RenderingMode? { nil }
-
+    
     /// Optional namespace for the image assets (default is `nil`)
     public static var namespace: String? { nil }
     
@@ -66,11 +60,7 @@ extension ImageAsset {
     /// (prepended to `rawValue`) and `bundle`.
     /// - Returns: The named image or else `nil` if the named asset cannot be loaded.
     public func loadImage() -> UIImage? {
-        let image = UIImage(named: calculateName(), in: Self.bundle, compatibleWith: nil)
-        guard let renderingMode = Self.renderingMode else {
-            return image
-        }
-        return image?.withRenderingMode(renderingMode)
+        UIImage(named: calculateName(), in: Self.bundle, compatibleWith: nil)
     }
 
     internal func calculateName() -> String {

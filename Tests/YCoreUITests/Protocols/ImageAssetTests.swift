@@ -40,12 +40,6 @@ final class ImageAssetTests: XCTestCase {
             XCTAssertNotEqual($0.image.pngData(), DefaultImageAssets.fallbackImage.pngData())
         }
     }
-
-    func test_loadImageWithRenderingMode() {
-        RenderMode.allCases.forEach {
-            XCTAssertNotNil($0.loadImage())
-        }
-    }
     
     func test_missingImage() {
         YCoreUI.isLoggingEnabled = false
@@ -105,14 +99,5 @@ extension ImageAssetTests {
             let image: UIImage! = UIImage(systemName: "x.squareroot")
             return image
         }
-    }
-
-    enum RenderMode: String, CaseIterable, ImageAsset {
-        case unitedStates = "flag_us"
-        case india = "flag_in"
-        case switzerland = "flag_ch"
-
-        static var bundle: Bundle { .module }
-        static var renderingMode: UIImage.RenderingMode? { .alwaysOriginal }
     }
 }

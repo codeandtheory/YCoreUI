@@ -33,6 +33,19 @@ final class SystemImageTests: XCTestCase {
         YCoreUI.isLoggingEnabled = true
     }
     
+    func test_loadImageWithRenderingMode() {
+        RenderMode.allCases.forEach {
+            XCTAssertEqual(
+                $0.loadImage()?.pngData(),
+                UIImage(
+                    systemName: $0.rawValue,
+                    withConfiguration: RenderMode.configuration
+                )?.withRenderingMode(RenderMode.renderingMode ?? .alwaysTemplate).pngData()
+            )
+            XCTAssertEqual($0.image.renderingMode, .alwaysOriginal)
+        }
+    }
+
     func test_defaultImageScaling() {
         XCTAssertEqual(Symbols.textStyle, .body)
         XCTAssertEqual(Symbols.configuration, UIImage.SymbolConfiguration(textStyle: .body))
@@ -87,5 +100,13 @@ extension SystemImageTests {
         case unchecked = "square"
 
         static var textStyle: UIFont.TextStyle? { .title1 }
+    }
+
+    enum RenderMode: String, CaseIterable, SystemImage {
+        case plus
+        case minus
+        case trash
+
+        static var renderingMode: UIImage.RenderingMode? { .alwaysOriginal }
     }
 }

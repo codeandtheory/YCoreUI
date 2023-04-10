@@ -8,7 +8,6 @@
 
 import XCTest
 
-// swiftlint:disable superfluous_disable_command
 final class UIViewConstrainEdgesTests: XCTestCase {
     func testSimple() {
         let (sut, insets) = makeSUT()
@@ -51,7 +50,6 @@ final class UIViewConstrainEdgesTests: XCTestCase {
         XCTAssertEqual(trailing?.secondAttribute, .trailing)
         XCTAssertEqual(trailing?.constant, -insets.trailing)
     }
-    // swiftlint:disable function_body_length
     func testPartialEdges() {
         let (sut, _) = makeSUT()
         let edges: [NSDirectionalRectEdge] = [
@@ -115,8 +113,7 @@ final class UIViewConstrainEdgesTests: XCTestCase {
             button.removeFromSuperview()
         }
     }
-    // swiftlint:enable function_body_length
-
+    
     func testRelation() {
         let (sut, _) = makeSUT()
         let relations: [(input: NSLayoutConstraint.Relation, inverse: NSLayoutConstraint.Relation)] = [
@@ -178,4 +175,3 @@ private extension UIViewConstrainEdgesTests {
         return (container, insets)
     }
 }
-// swiftlint: enable superfluous_disable_command

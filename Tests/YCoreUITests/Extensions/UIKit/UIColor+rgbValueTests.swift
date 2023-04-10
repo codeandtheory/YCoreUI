@@ -10,7 +10,7 @@ import XCTest
 @testable import YCoreUI
 
 // Large tuples help us build unit test expectations concisely
-// swiftlint:disable superfluous_disable_command large_tuple
+// swiftlint: disable large_tuple
 
 final class UIColorRgbValueTests: XCTestCase {
     typealias ColorTest = (color: UIColor, prefix: String?, isUppercase: Bool, output: String)
@@ -75,4 +75,4 @@ final class UIColorRgbValueTests: XCTestCase {
         YCoreUI.isLoggingEnabled = true
     }
 }
-// swiftlint: enable large_tuple superfluous_disable_command
+// swiftlint: enable large_tuple
