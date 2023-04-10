@@ -40,7 +40,7 @@ final class SystemImageTests: XCTestCase {
                 UIImage(
                     systemName: $0.rawValue,
                     withConfiguration: RenderMode.configuration
-                )?.withRenderingMode(RenderMode.renderingMode ?? .alwaysTemplate).pngData()
+                )?.withRenderingMode(RenderMode.renderingMode).pngData()
             )
             XCTAssertEqual($0.image.renderingMode, .alwaysOriginal)
         }
@@ -107,6 +107,6 @@ extension SystemImageTests {
         case minus
         case trash
 
-        static var renderingMode: UIImage.RenderingMode? { .alwaysOriginal }
+        static var renderingMode: UIImage.RenderingMode { .alwaysOriginal }
     }
 }
