@@ -50,7 +50,7 @@ final class UIViewConstrainEdgesTests: XCTestCase {
         XCTAssertEqual(trailing?.secondAttribute, .trailing)
         XCTAssertEqual(trailing?.constant, -insets.trailing)
     }
-    
+
     func testPartialEdges() {
         let (sut, _) = makeSUT()
         let edges: [NSDirectionalRectEdge] = [
