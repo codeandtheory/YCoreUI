@@ -53,17 +53,29 @@ extension Colorable {
     /// (prepended to `rawValue`) and `bundle`.
     /// - Returns: The named color or else `nil` if the named asset cannot be loaded
     public func loadColor() -> UIColor? {
+        UIColor(named: calculateName(), in: Self.bundle, compatibleWith: nil)
+    }
+
+    internal func calculateName() -> String {
         let name: String
         if let validNamespace = Self.namespace {
             name = "\(validNamespace)/\(rawValue)"
         } else {
             name = rawValue
         }
-        return UIColor(named: name, in: Self.bundle, compatibleWith: nil)
+        return name
     }
-    
+
     /// A color asset for this name value.
     ///
-    /// Default implementation calls `loadColor` and nil-coalesces to `fallbackColor`.
-    public var color: UIColor { loadColor() ?? Self.fallbackColor }
+    /// Returns `loadColor()` nil-coalesced to `fallbackColor`.
+    public var color: UIColor {
+        guard let color = loadColor() else {
+            if YCoreUI.isLoggingEnabled {
+                YCoreUI.colorLogger.warning("Color named \(calculateName()) failed to load from bundle.")
+            }
+            return Self.fallbackColor
+        }
+        return color
+    }
 }
