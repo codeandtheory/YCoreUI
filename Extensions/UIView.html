@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UIView Extension Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Extension/UIView" class="dashAnchor"></a>
+
+    <a title="UIView Extension Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          YCoreUI Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">YCoreUI Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      UIView Extension Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FormViewController.html">FormViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WCAGContext.html">WCAGContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/WCAGLevel.html">WCAGLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CGSize.html">CGSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/NSDirectionalEdgeInsets.html">NSDirectionalEdgeInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/NSDirectionalRectEdge.html">NSDirectionalRectEdge</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIEdgeInsets.html">UIEdgeInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions.html#/c:objc(cs)UILayoutGuide">UILayoutGuide</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIScreen.html">UIScreen</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIScreen/ScaleFactor.html">– ScaleFactor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIScrollView.html">UIScrollView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UITraitCollection.html">UITraitCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView.html">UIView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView/XAxisAnchor.html">– XAxisAnchor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView/YAxisAnchor.html">– YAxisAnchor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView/DimensionAnchor.html">– DimensionAnchor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView/Center.html">– Center</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Anchorable.html">Anchorable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Colorable.html">Colorable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ImageAsset.html">ImageAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Localizable.html">Localizable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SystemImage.html">SystemImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Animation.html">Animation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Animation/Curve.html">– Curve</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Elevation.html">Elevation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/YCoreUI.html">YCoreUI</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:7YCoreUI14RGBAComponentsa">RGBAComponents</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>UIView</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt">UIView</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UIView</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Anchorable.html">Anchorable</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Adds support for executing animations using properties from <code><a href="../Structs/Animation.html">Animation</a></code></p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE7animate4with10animations10completionyAC9AnimationV_yycySbcSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/animate(with:animations:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE7animate4with10animations10completionyAC9AnimationV_yycySbcSgtFZ">animate(with:<wbr>animations:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Executes an animation using the specified parameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">animate</span><span class="p">(</span>
+    <span class="n">with</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Structs/Animation.html">Animation</a></span><span class="p">,</span>
+    <span class="nv">animations</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies duration, delay, curve type and options</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animations</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the animation block to perform</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the optional completion block to be called when the animation completes</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain_2to2of9relatedBy10multiplier8constant8priority8isActiveSo18NSLayoutConstraintCSo0N9AttributeV_AOypSgSo0N8RelationV14CoreFoundation7CGFloatVAUSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(_:to:of:relatedBy:multiplier:constant:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain_2to2of9relatedBy10multiplier8constant8priority8isActiveSo18NSLayoutConstraintCSo0N9AttributeV_AOypSgSo0N8RelationV14CoreFoundation7CGFloatVAUSo16UILayoutPriorityaSbtF">constrain(_:<wbr>to:<wbr>of:<wbr>relatedBy:<wbr>multiplier:<wbr>constant:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Declarative auto-layout. Creates standard NSLayoutConstraint&rsquo;s but in a
+declarative way and with fewer lines of code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">attr1</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">attr2</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span> <span class="o">=</span> <span class="o">.</span><span class="n">notAnAttribute</span><span class="p">,</span>
+    <span class="n">of</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">multiplier</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">constant</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attr1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>attribute to constrain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attr2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>second attribute (optional, default <code>.notAnAttribute</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view for second attribute (optional, default <code>nil</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards multiplier*attr2 + c) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multiplier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>multiplier to apply (default <code>1</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constant offset amount (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE11XAxisAnchorO"></a>
+                    <a name="//apple_ref/swift/Enum/XAxisAnchor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE11XAxisAnchorO">XAxisAnchor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Anchors that constrain views along the x-axis</p>
+
+                        <a href="../Extensions/UIView/XAxisAnchor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">XAxisAnchor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE11YAxisAnchorO"></a>
+                    <a name="//apple_ref/swift/Enum/YAxisAnchor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE11YAxisAnchorO">YAxisAnchor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Anchors that constrain views along the y-axis</p>
+
+                        <a href="../Extensions/UIView/YAxisAnchor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">YAxisAnchor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE15DimensionAnchorO"></a>
+                    <a name="//apple_ref/swift/Enum/DimensionAnchor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE15DimensionAnchorO">DimensionAnchor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Anchors that constrain views along either width or height</p>
+
+                        <a href="../Extensions/UIView/DimensionAnchor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DimensionAnchor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE11XAxisAnchorO_So0lnO0CSo0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(_:to:relatedBy:constant:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE11XAxisAnchorO_So0lnO0CSo0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF">constrain(_:<wbr>to:<wbr>relatedBy:<wbr>constant:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates standard NSLayoutConstraint&rsquo;s using anchor syntax</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">anchorType</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIView/XAxisAnchor.html">XAxisAnchor</a></span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">otherAnchor</span><span class="p">:</span> <span class="kt">NSLayoutXAxisAnchor</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="n">constant</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>anchorType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X-axis anchor to constrain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>otherAnchor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>other X-axis anchor</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards otherAnchor + c) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constant offset amount (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE11YAxisAnchorO_So0lnO0CSo0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(_:to:relatedBy:constant:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE11YAxisAnchorO_So0lnO0CSo0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF">constrain(_:<wbr>to:<wbr>relatedBy:<wbr>constant:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates standard NSLayoutConstraint&rsquo;s using anchor syntax</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">anchorType</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIView/YAxisAnchor.html">YAxisAnchor</a></span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">otherAnchor</span><span class="p">:</span> <span class="kt">NSLayoutYAxisAnchor</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="n">constant</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>anchorType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Y-axis anchor to constrain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>otherAnchor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>other Y-axis anchor</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards otherAnchor + c) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constant offset amount (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain_9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE15DimensionAnchorO_So0K8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(_:relatedBy:constant:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain_9relatedBy8constant8priority8isActiveSo18NSLayoutConstraintCAbCE15DimensionAnchorO_So0K8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF">constrain(_:<wbr>relatedBy:<wbr>constant:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates standard NSLayoutConstraint&rsquo;s using anchor syntax</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">anchorType</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIView/DimensionAnchor.html">DimensionAnchor</a></span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="n">constant</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>anchorType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>layout dimension to constrain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards otherAnchor + c) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constant offset amount (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy10multiplier8constant8priority8isActiveSo18NSLayoutConstraintCAbCE15DimensionAnchorO_So0mO0CSo0M8RelationV14CoreFoundation7CGFloatVAUSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(_:to:relatedBy:multiplier:constant:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain_2to9relatedBy10multiplier8constant8priority8isActiveSo18NSLayoutConstraintCAbCE15DimensionAnchorO_So0mO0CSo0M8RelationV14CoreFoundation7CGFloatVAUSo16UILayoutPriorityaSbtF">constrain(_:<wbr>to:<wbr>relatedBy:<wbr>multiplier:<wbr>constant:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates standard NSLayoutConstraint&rsquo;s using anchor syntax</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">anchorType</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIView/DimensionAnchor.html">DimensionAnchor</a></span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">otherAnchor</span><span class="p">:</span> <span class="kt">NSLayoutDimension</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">multiplier</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">constant</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>anchorType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>layout dimension to constrain</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>otherAnchor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>other layout dimension anchor</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards otherAnchor + c) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multiplier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>multiplier to apply (default <code>1</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constant offset amount (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE20constrainAspectRatio_6offset9relatedBy8priority8isActiveSo18NSLayoutConstraintC14CoreFoundation7CGFloatV_AMSo0M8RelationVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainAspectRatio(_:offset:relatedBy:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE20constrainAspectRatio_6offset9relatedBy8priority8isActiveSo18NSLayoutConstraintC14CoreFoundation7CGFloatV_AMSo0M8RelationVSo16UILayoutPriorityaSbtF">constrainAspectRatio(_:<wbr>offset:<wbr>relatedBy:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the aspect ratio for the receiving view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainAspectRatio</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">ratio</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+    <span class="nv">offset</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ratio</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>aspect ratio</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>offset to apply (default <code>.zero</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards ratio) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain5below9relatedBy6offset8priority8isActiveSo18NSLayoutConstraintCAC10Anchorable_p_So0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(below:relatedBy:offset:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain5below9relatedBy6offset8priority8isActiveSo18NSLayoutConstraintCAC10Anchorable_p_So0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF">constrain(below:<wbr>relatedBy:<wbr>offset:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the receiving view below a sibling view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">below</span> <span class="nv">sibling</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Anchorable.html">Anchorable</a></span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">offset</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sibling</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>sibling view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards sibling) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the gap between the bottom of sibling and the top of the receiver (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE9constrain5after9relatedBy6offset8priority8isActiveSo18NSLayoutConstraintCAC10Anchorable_p_So0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrain(after:relatedBy:offset:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE9constrain5after9relatedBy6offset8priority8isActiveSo18NSLayoutConstraintCAC10Anchorable_p_So0L8RelationV14CoreFoundation7CGFloatVSo16UILayoutPriorityaSbtF">constrain(after:<wbr>relatedBy:<wbr>offset:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the receiving view to the left of (trailing side of) a sibling view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrain</span><span class="p">(</span>
+    <span class="n">after</span> <span class="nv">sibling</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Anchorable.html">Anchorable</a></span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">offset</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sibling</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>sibling view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards sibling) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the gap between the trailing edge of sibling and the leading edge of the receiver (default <code>0</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created layout constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE6CenterV"></a>
+                    <a name="//apple_ref/swift/Struct/Center" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE6CenterV">Center</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Center alignment options</p>
+
+                        <a href="../Extensions/UIView/Center.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Center</span> <span class="p">:</span> <span class="kt">OptionSet</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE15constrainCenter_2to9relatedBy6offset8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGAbCE0E0V_AC10Anchorable_pSgSo0M8RelationVSo8UIOffsetVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainCenter(_:to:relatedBy:offset:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE15constrainCenter_2to9relatedBy6offset8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGAbCE0E0V_AC10Anchorable_pSgSo0M8RelationVSo8UIOffsetVSo16UILayoutPriorityaSbtF">constrainCenter(_:<wbr>to:<wbr>relatedBy:<wbr>offset:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the center of the receiving view with the center of another view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainCenter</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">center</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIView/Center.html">Center</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">all</span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Anchorable.html">Anchorable</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">offset</span><span class="p">:</span> <span class="kt">UIOffset</span> <span class="o">=</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>center</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>which center attributes to constrain (default <code>.all</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view or layout guide to constrain to (pass <code>nil</code> to constrain to superview)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards view2) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>offset to apply relative to view2.center (default <code>.zero</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraints or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.centerX, .centerY</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE14constrainEdges_2to9relatedBy4with8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGSo21NSDirectionalRectEdgeV_AC10Anchorable_pSgSo0M8RelationVSo0pR6InsetsVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainEdges(_:to:relatedBy:with:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE14constrainEdges_2to9relatedBy4with8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGSo21NSDirectionalRectEdgeV_AC10Anchorable_pSgSo0M8RelationVSo0pR6InsetsVSo16UILayoutPriorityaSbtF">constrainEdges(_:<wbr>to:<wbr>relatedBy:<wbr>with:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inset the edges of one view to those of another view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainEdges</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">edges</span><span class="p">:</span> <span class="kt">NSDirectionalRectEdge</span> <span class="o">=</span> <span class="o">.</span><span class="n">all</span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Anchorable.html">Anchorable</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="n">with</span> <span class="nv">insets</span><span class="p">:</span> <span class="kt">NSDirectionalEdgeInsets</span> <span class="o">=</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edges</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>which edges to constrain (default <code>.all</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view or layout guide to constrain to (pass <code>nil</code> to constrain to superview)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards view2) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>insets</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>insets to apply to each edge (default <code>.zero</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraints or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.top, .leading, .bottom, .trailing</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE14constrainEdges_2to9relatedBy7outsets8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGSo21NSDirectionalRectEdgeV_ABSgSo0M8RelationVSo0pR6InsetsVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainEdges(_:to:relatedBy:outsets:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE14constrainEdges_2to9relatedBy7outsets8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCGSo21NSDirectionalRectEdgeV_ABSgSo0M8RelationVSo0pR6InsetsVSo16UILayoutPriorityaSbtF">constrainEdges(_:<wbr>to:<wbr>relatedBy:<wbr>outsets:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Outset the edges of one view relative to those of another</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainEdges</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">edges</span><span class="p">:</span> <span class="kt">NSDirectionalRectEdge</span> <span class="o">=</span> <span class="o">.</span><span class="n">all</span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">outsets</span><span class="p">:</span> <span class="kt">NSDirectionalEdgeInsets</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edges</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>which edges to constrain (default <code>.all</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view to constraint to (pass <code>nil</code> to constrain to superview)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards view2) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>outsets</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>outsets to apply to each edge (default <code>.zero</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraints or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.top, .leading, .bottom, .trailing</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE23constrainEdgesToMargins_2to9relatedBy4with8priority8isActiveSDySo17NSLayoutAttributeVSo0O10ConstraintCGSo21NSDirectionalRectEdgeV_ABSgSo0O8RelationVSo0rT6InsetsVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainEdgesToMargins(_:to:relatedBy:with:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE23constrainEdgesToMargins_2to9relatedBy4with8priority8isActiveSDySo17NSLayoutAttributeVSo0O10ConstraintCGSo21NSDirectionalRectEdgeV_ABSgSo0O8RelationVSo0rT6InsetsVSo16UILayoutPriorityaSbtF">constrainEdgesToMargins(_:<wbr>to:<wbr>relatedBy:<wbr>with:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inset the edges of one view to the layout margins of another view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainEdgesToMargins</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">edges</span><span class="p">:</span> <span class="kt">NSDirectionalRectEdge</span> <span class="o">=</span> <span class="o">.</span><span class="n">all</span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">view2</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="n">with</span> <span class="nv">insets</span><span class="p">:</span> <span class="kt">NSDirectionalEdgeInsets</span> <span class="o">=</span> <span class="o">.</span><span class="n">zero</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edges</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>which edges to constrain (default <code>.all</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view whose layout margins will be used to constrain the receiver
+(pass <code>nil</code> to constrain to superview.layoutMarginsGuide)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards view2) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>insets</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>insets to apply to each edge (default <code>.zero</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraints or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.top, .leading, .bottom, .trailing</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE13constrainSize_9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0K10ConstraintCGSo6CGSizeV_So0K8RelationVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainSize(_:relatedBy:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE13constrainSize_9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0K10ConstraintCGSo6CGSizeV_So0K8RelationVSo16UILayoutPriorityaSbtF">constrainSize(_:<wbr>relatedBy:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the receiving view with given size</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainSize</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>size of view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards size) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.width, .height</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE13constrainSize5width6height9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCG14CoreFoundation7CGFloatV_AQSo0M8RelationVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainSize(width:height:relatedBy:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE13constrainSize5width6height9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0M10ConstraintCG14CoreFoundation7CGFloatV_AQSo0M8RelationVSo16UILayoutPriorityaSbtF">constrainSize(width:<wbr>height:<wbr>relatedBy:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the receiving view with width and height</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainSize</span><span class="p">(</span>
+    <span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+    <span class="nv">height</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>width</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>width of view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>height</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>height of view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards width and height) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.width, .height</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So6UIViewC7YCoreUIE13constrainSize_9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0K10ConstraintCG14CoreFoundation7CGFloatV_So0K8RelationVSo16UILayoutPriorityaSbtF"></a>
+                    <a name="//apple_ref/swift/Method/constrainSize(_:relatedBy:priority:isActive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So6UIViewC7YCoreUIE13constrainSize_9relatedBy8priority8isActiveSDySo17NSLayoutAttributeVSo0K10ConstraintCG14CoreFoundation7CGFloatV_So0K8RelationVSo16UILayoutPriorityaSbtF">constrainSize(_:<wbr>relatedBy:<wbr>priority:<wbr>isActive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constrain the receiving view with given dimension applied to both width and height.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">constrainSize</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">dimension</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+    <span class="n">relatedBy</span> <span class="nv">relation</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Relation</span> <span class="o">=</span> <span class="o">.</span><span class="n">equal</span><span class="p">,</span>
+    <span class="nv">priority</span><span class="p">:</span> <span class="kt">UILayoutPriority</span> <span class="o">=</span> <span class="o">.</span><span class="kd">required</span><span class="p">,</span>
+    <span class="nv">isActive</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dimension</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>dimension of view to constrain to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>relation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>relation to evaluate (towards dimension) (default <code>.equal</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>constraint priority (default <code>.required</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isActive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether to activate the constraint or not (default <code>true</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of constraints created, keyed by <code>.width, .height</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2023 <a class="link" href="https://yml.co" target="_blank" rel="external noopener">Y Media Labs</a>. All rights reserved. (Last updated: 2023-04-11)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
