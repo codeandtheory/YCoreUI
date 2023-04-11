@@ -15,55 +15,59 @@ import UIKit
 ///  package, override `bundle` to return `.module`. If your assets are categorized within their asset catalog by
 ///  a namespace, then override `namespace` to return the proper string prefix.
 public protocol Colorable: RawRepresentable where RawValue == String {
-    /// The bundle containing the color assets for this enum (default is `.main`)
+    /// The bundle containing the color assets for this enum.
     static var bundle: Bundle { get }
 
-    /// Optional namespace for the color assets (default is `nil`)
+    /// Optional namespace for the color assets.
     static var namespace: String? { get }
     
-    /// Fallback color to use in case a color asset cannot be loaded (default is `.systemPink`)
+    /// Fallback color to use in case a color asset cannot be loaded.
     static var fallbackColor: UIColor { get }
 
     /// Loads the named color.
-    ///
-    /// Default implementation uses `UIColor(named:in:compatibleWith:)` passing in the associated `namespace`
-    /// (prepended to `rawValue`) and `bundle`.
     /// - Returns: The named color or else `nil` if the named asset cannot be loaded
     func loadColor() -> UIColor?
     
     /// A color asset for this name value.
-    ///
-    /// Default implementation calls `loadColor` and nil-coalesces to `fallbackColor`.
     var color: UIColor { get }
 }
 
 extension Colorable {
-    /// The bundle containing the color assets for this enum (default is `.main`)
+    /// Returns the `.main` bundle.
     public static var bundle: Bundle { .main }
 
-    /// Optional namespace for the color assets (default is `nil`)
+    /// Returns `nil` to indicate no namespace.
     public static var namespace: String? { nil }
     
-    /// Fallback color to use in case a color asset cannot be loaded (default is `.systemPink`)
+    /// Returns `.systemPink` color.
     public static var fallbackColor: UIColor { .systemPink }
     
-    /// Loads the named color.
-    ///
-    /// Default implementation uses `UIColor(named:in:compatibleWith:)` passing in the associated `namespace`
+    /// Returns `UIColor(named:in:compatibleWith:)` passing in the associated `namespace`
     /// (prepended to `rawValue`) and `bundle`.
-    /// - Returns: The named color or else `nil` if the named asset cannot be loaded
     public func loadColor() -> UIColor? {
+        UIColor(named: calculateName(), in: Self.bundle, compatibleWith: nil)
+    }
+
+    internal func calculateName() -> String {
         let name: String
         if let validNamespace = Self.namespace {
             name = "\(validNamespace)/\(rawValue)"
         } else {
             name = rawValue
         }
-        return UIColor(named: name, in: Self.bundle, compatibleWith: nil)
+        return name
     }
-    
-    /// A color asset for this name value.
+
+    /// Returns `loadColor()` nil-coalesced to `fallbackColor`.
     ///
-    /// Default implementation calls `loadColor` and nil-coalesces to `fallbackColor`.
-    public var color: UIColor { loadColor() ?? Self.fallbackColor }
+    /// Unless logging is disabled, a warning message will be logged to the console if the color asset fails to load.
+    public var color: UIColor {
+        guard let color = loadColor() else {
+            if YCoreUI.isLoggingEnabled {
+                YCoreUI.colorLogger.warning("Color named \(calculateName()) failed to load from bundle.")
+            }
+            return Self.fallbackColor
+        }
+        return color
+    }
 }
