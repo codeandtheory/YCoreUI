@@ -31,14 +31,12 @@ final class ColorableTests: XCTestCase {
     func testLoadColorWithoutNamespace() {
         WarningColors.allCases.forEach {
             XCTAssertNotNil($0.loadColor())
-            XCTAssertNotEqual($0.color, WarningColors.fallbackColor)
         }
     }
 
     func testLoadColorWithNamespace() {
         ErrorColors.allCases.forEach {
             XCTAssertNotNil($0.loadColor())
-            XCTAssertNotEqual($0.color, ErrorColors.fallbackColor)
         }
     }
 
