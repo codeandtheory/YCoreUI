@@ -29,3 +29,4 @@ public extension UIColor {
         return (red, green, blue, alpha)
     }
 }
+// swiftlint: enable large_tuple

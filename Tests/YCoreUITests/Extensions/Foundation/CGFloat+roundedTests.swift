@@ -10,7 +10,7 @@ import XCTest
 @testable import YCoreUI
 
 // Large tuples help us build unit test expectations concisely
-// swiftlint:disable large_tuple
+// swiftlint: disable large_tuple
 
 final class CGFloatRoundedTests: XCTestCase {
     typealias ScalingInputs = (
@@ -75,3 +75,4 @@ final class CGFloatRoundedTests: XCTestCase {
         }
     }
 }
+// swiftlint: enable large_tuple

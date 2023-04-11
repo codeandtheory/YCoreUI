@@ -14,24 +14,21 @@ import UIKit
 ///  to `SystemImage`.  The raw value of the enum should match a sytem image name (e.g. `checkmark.seal`).
 public protocol SystemImage: RawRepresentable where RawValue == String {
     /// Fallback image to use in case a system image cannot be loaded.
-    /// (default is a 16 x 16 square filled with `.systemPink`)
     static var fallbackImage: UIImage { get }
 
     /// A system image for this name value.
-    ///
-    /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
     var image: UIImage { get }
     
     /// Image will scale according to the specified text style.
     ///
-    /// Default implementation is `.body`.
+    /// Return `nil` to not have the system image scale (not recommended).
     static var textStyle: UIFont.TextStyle? { get }
     
-    /// Image configuration to be used in `loadImage()`.
-    ///
-    /// Default implementation is `UIImage.SymbolConfiguration(textStyle: textStyle)`.
-    /// Returns `nil` when `textStyle` is `nil`.
+    /// Image configuration to be used to load the system image.
     static var configuration: UIImage.Configuration? { get }
+
+    /// Rendering mode to use for the system image.
+    static var renderingMode: UIImage.RenderingMode { get }
 
     /// Loads the named system image.
     /// - Returns: The named system image or else `nil` if the system image cannot be loaded.
@@ -39,21 +36,7 @@ public protocol SystemImage: RawRepresentable where RawValue == String {
 }
 
 extension SystemImage {
-    /// Image will scale according to the specified text style.
-    public static var textStyle: UIFont.TextStyle? { .body }
-    
-    /// Image configuration to be used in `loadImage()`.
-    ///
-    /// Returns `nil` when `textStyle` is `nil`.
-    public static var configuration: UIImage.Configuration? {
-        guard let textStyle = textStyle else {
-            return nil
-        }
-        return UIImage.SymbolConfiguration(textStyle: textStyle)
-    }
-    
-    /// Fallback image to use in case a system image cannot be loaded.
-    /// (default is a 16 x 16 square filled with `.systemPink`)
+    /// Returns a 16 x 16 square filled with `.systemPink`.
     public static var fallbackImage: UIImage {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 16, height: 16))
         let image = renderer.image { ctx in
@@ -63,17 +46,28 @@ extension SystemImage {
         return image
     }
 
-    /// Loads the named system image.
-    ///
-    /// Default implementation uses `UIImage(systemName:)` passing in the associated `rawValue`.
-    /// - Returns: The named system image or else `nil` if the system image cannot be loaded.
-    public func loadImage() -> UIImage? {
-        UIImage(systemName: rawValue, withConfiguration: Self.configuration)
+    /// Returns `.body` text style.
+    public static var textStyle: UIFont.TextStyle? { .body }
+
+    /// Returns `UIImage.SymbolConfiguration(textStyle:)`
+    /// passing in the specified `textStyle` or else returns `nil` if `textStyle` is `nil`.
+    public static var configuration: UIImage.Configuration? {
+        guard let textStyle = textStyle else {
+            return nil
+        }
+        return UIImage.SymbolConfiguration(textStyle: textStyle)
     }
 
-    /// A system image for this name value.
-    ///
-    /// Default implementation calls `loadImage` and nil-coalesces to `fallbackImage`.
+    /// Returns `.automatic` rendering mode.
+    public static var renderingMode: UIImage.RenderingMode { .automatic }
+
+    /// Returns `UIImage(systemName:)` passing in the associated `rawValue` and `configuration`
+    /// and combined with the specified `renderingMode`.
+    public func loadImage() -> UIImage? {
+        UIImage(systemName: rawValue, withConfiguration: Self.configuration)?.withRenderingMode(Self.renderingMode)
+    }
+
+    /// Returns `loadImage()` nil-coalesced to `fallbackImage`.
     public var image: UIImage {
         guard let image = loadImage() else {
             if YCoreUI.isLoggingEnabled {
